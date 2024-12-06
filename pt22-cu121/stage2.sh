@@ -66,8 +66,6 @@ mv "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-3D-Pack/_Example_
     "$workdir"/Comfy3D_WinPortable/ComfyUI/input/
 
 # Clean up
-rm "$workdir"/Comfy3D_WinPortable/*.log
-
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
 rm ./was-node-suite-comfyui/was_suite_config.json
 rm ./ComfyUI-Impact-Pack/impact-pack.ini
