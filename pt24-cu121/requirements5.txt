@@ -30,6 +30,5 @@ segment-anything
 slangtorch
 torchtyping
 trimesh
-ultralytics
 webcolors
 xatlas
