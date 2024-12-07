@@ -39,8 +39,7 @@ git reset --hard "1.9"
 cd "$workdir"
 mv  python_embeded  Comfy3D_WinPortable/python_embeded
 
-# Copy & Replace start script files
-
+# Copy start script files
 cp -rf "$workdir"/attachments/* \
     "$workdir"/Comfy3D_WinPortable/
 
@@ -55,6 +54,11 @@ $gcs https://github.com/ltdrdata/ComfyUI-Impact-Subpack.git impact_subpack
 # Run test, also let custom nodes download some models
 cd "$workdir"/Comfy3D_WinPortable
 ./python_embeded/python.exe -s -B ComfyUI/main.py --quick-test-for-ci --cpu
+
+# Copy u2net model files needed by rembg (to avoid download at first start)
+cd "$workdir"/Comfy3D_WinPortable
+mkdir extras
+cp ~/.u2net/u2net.onnx ./extras/u2net.onnx
 
 # Copy/Move example files of 3D-Pack
 mkdir -p "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows
