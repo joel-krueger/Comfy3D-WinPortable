@@ -26,9 +26,12 @@ pytorch-lightning
 pytorch-msssim
 rembg
 requests
+rich
 segment-anything
 slangtorch
 torchtyping
 trimesh
+typer
+typing-extensions
 webcolors
 xatlas

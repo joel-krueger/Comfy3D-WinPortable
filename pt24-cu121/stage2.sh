@@ -25,6 +25,10 @@ cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
 
 mv "$workdir"/ComfyUI-3D-Pack ./ComfyUI-3D-Pack
 
+# Install ComfyUI-Manager but disable it by default
+git clone https://ghp.ci/https://github.com/ltdrdata/ComfyUI-Manager.git
+mv ComfyUI-Manager ComfyUI-Manager.disabled
+
 $gcs https://github.com/cubiq/ComfyUI_IPAdapter_plus.git
 $gcs https://github.com/kijai/ComfyUI-KJNodes.git
 $gcs https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
