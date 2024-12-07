@@ -1,5 +1,5 @@
 #!/bin/bash
-# You need to install Git for Windows and select Git Bash (Default)
+# You need to install <Git for Windows> with <Git Bash> (installed by default)
 # https://git-scm.com/download/win
 
 set -eu

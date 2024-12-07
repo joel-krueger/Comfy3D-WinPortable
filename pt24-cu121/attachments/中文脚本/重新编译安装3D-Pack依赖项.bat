@@ -60,6 +60,9 @@ git clone --depth=1 https://ghp.ci/https://github.com/MrForExample/Comfy3D_Pre_B
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
  git+https://ghp.ci/https://github.com/NVlabs/nvdiffrast.git
 
+.\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
+ "git+https://ghp.ci/https://github.com/facebookresearch/pytorch3d.git@stable"
+
 echo "编译完成，开始安装……"
 
 del .\tmp_build\numpy-2*.whl
