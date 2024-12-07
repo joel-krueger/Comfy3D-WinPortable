@@ -1,5 +1,4 @@
 git+https://github.com/WASasquatch/cstr
 git+https://github.com/WASasquatch/ffmpy.git
 git+https://github.com/WASasquatch/img2texture.git
-clip-interrogator==0.6.0
 ultralytics==8.3.40

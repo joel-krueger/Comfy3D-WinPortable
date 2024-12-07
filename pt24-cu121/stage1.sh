@@ -64,6 +64,7 @@ $pip_exe install "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py311_t
 # From: https://github.com/rusty1s/pytorch_scatter?tab=readme-ov-file#binaries
 $pip_exe install torch-scatter -f https://data.pyg.org/whl/torch-2.4.0%2Bcu121.html
 
+$pip_exe install -r "$workdir"/requirements8.txt
 $pip_exe install -r "$workdir"/requirements9.txt
 
 # Add Ninja binary (replacing PIP Ninja)
