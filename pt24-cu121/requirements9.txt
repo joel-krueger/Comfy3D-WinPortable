@@ -1,0 +1,6 @@
+# Make sure use Numpy 1
+numpy==1.26.4
+# Fix for CRM V1
+open-clip-torch==2.24.0
+# For CRM V3 (eden_comfy_pipelines)
+# open-clip-torch==2.26.1
