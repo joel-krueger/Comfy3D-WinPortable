@@ -20,7 +20,6 @@ mkdir -p "$HF_HUB_CACHE"
 # ComfyUI main app
 git clone https://github.com/comfyanonymous/ComfyUI.git \
     "$workdir"/Comfy3D_WinPortable/ComfyUI
-
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI
 git reset --hard "v0.0.1"
 
@@ -32,9 +31,12 @@ mv "$workdir"/ComfyUI-3D-Pack ./ComfyUI-3D-Pack
 $gcs https://github.com/cubiq/ComfyUI_IPAdapter_plus.git
 $gcs https://github.com/kijai/ComfyUI-KJNodes.git
 $gcs https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
-$gcs https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git
 $gcs https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git
 $gcs https://github.com/WASasquatch/was-node-suite-comfyui.git
+
+git clone https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git
+cd ComfyUI-Inspire-Pack
+git reset --hard "0.82.7"
 
 cd "$workdir"
 mv  python_embeded  Comfy3D_WinPortable/python_embeded
