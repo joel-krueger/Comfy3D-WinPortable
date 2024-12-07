@@ -9,5 +9,5 @@ open-clip-torch==2.24.0
 
 # Forcing version to prevent PIP re-installing
 clip-interrogator==0.6.0
-ultralytics==8.2.103
+ultralytics==8.2.70
 torchvision==0.19.0
