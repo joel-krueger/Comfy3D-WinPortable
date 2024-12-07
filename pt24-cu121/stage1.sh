@@ -1,13 +1,13 @@
 #!/bin/bash
 set -eux
 
+# Chores
 git config --global core.autocrlf true
-
+gcs='git clone --depth=1 --no-tags --recurse-submodules --shallow-submodules'
 workdir=$(pwd)
-
 pip_exe="${workdir}/python_embeded/python.exe -s -m pip"
-
 export PYTHONPYCACHEPREFIX="${workdir}/pycache"
+export PATH="$PATH:$workdir/Comfy3D_WinPortable/python_embeded/Scripts"
 
 ls -lahF
 

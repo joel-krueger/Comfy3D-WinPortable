@@ -1,16 +1,13 @@
 #!/bin/bash
 set -eux
 
+# Chores
 gcs='git clone --depth=1 --no-tags --recurse-submodules --shallow-submodules'
-
 workdir=$(pwd)
-
 export PYTHONPYCACHEPREFIX="$workdir"/pycache
-
 export PATH="$PATH:$workdir/Comfy3D_WinPortable/python_embeded/Scripts"
 
 ls -lahF
-
 mkdir -p "$workdir"/Comfy3D_WinPortable
 
 # Redirect HuggingFace-Hub model folder
