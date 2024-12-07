@@ -16,21 +16,21 @@ ls -lahF
 cd "$workdir"
 curl -sSL https://github.com/adang1345/PythonWindows/raw/refs/heads/master/3.11.11/python-3.11.11-embed-amd64.zip \
     -o python_embeded.zip
-unzip python_embeded.zip -d "$workdir"/python_embeded
+unzip -q python_embeded.zip -d "$workdir"/python_embeded
 
 # Download 3D-Pack
 # Note: zip archive doesn't contain the ".git" folder, it's not upgradable.
 cd "$workdir"
 curl -sSL https://github.com/MrForExample/ComfyUI-3D-Pack/archive/bdc5e3029ed96d9fa25e651e12fce1553a4422c4.zip \
     -o ComfyUI-3D-Pack-bdc5e3029ed96d9fa25e651e12fce1553a4422c4.zip
-unzip ComfyUI-3D-Pack-bdc5e3029ed96d9fa25e651e12fce1553a4422c4.zip
+unzip -q ComfyUI-3D-Pack-bdc5e3029ed96d9fa25e651e12fce1553a4422c4.zip
 mv ComfyUI-3D-Pack-bdc5e3029ed96d9fa25e651e12fce1553a4422c4 ComfyUI-3D-Pack
 rm ComfyUI-3D-Pack-bdc5e3029ed96d9fa25e651e12fce1553a4422c4.zip
 
 cd "$workdir"
 curl -sSL https://github.com/MrForExample/Comfy3D_Pre_Builds/archive/d11afaad1944278712f13865f0bb902a5fd9c745.zip \
     -o Comfy3D_Pre_Builds-d11afaad1944278712f13865f0bb902a5fd9c745.zip
-unzip Comfy3D_Pre_Builds-d11afaad1944278712f13865f0bb902a5fd9c745.zip
+unzip -q Comfy3D_Pre_Builds-d11afaad1944278712f13865f0bb902a5fd9c745.zip
 mv Comfy3D_Pre_Builds-d11afaad1944278712f13865f0bb902a5fd9c745 Comfy3D_Pre_Builds
 rm Comfy3D_Pre_Builds-d11afaad1944278712f13865f0bb902a5fd9c745.zip
 
@@ -75,7 +75,7 @@ $pip_exe install -r "$workdir"/requirements9.txt
 ## the path problem will be fixed automatically.
 curl -sSL https://github.com/ninja-build/ninja/releases/latest/download/ninja-win.zip \
     -o ninja-win.zip
-unzip -o ninja-win.zip -d "$workdir"/python_embeded/Scripts
+unzip -q -o ninja-win.zip -d "$workdir"/python_embeded/Scripts
 rm ninja-win.zip
 
 # Setup Python embeded, part 3/3
