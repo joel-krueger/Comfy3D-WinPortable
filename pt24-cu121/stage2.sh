@@ -56,6 +56,10 @@ cd "$workdir"/Comfy3D_WinPortable
 mkdir extras
 cp ~/.u2net/u2net.onnx ./extras/u2net.onnx
 
+# Download extra models
+curl -sSL https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth \
+    -o "$workdir"/Comfy3D_WinPortable/ComfyUI/models/upscale_models/RealESRGAN_x4plus.pth
+
 # Copy/Move example files of 3D-Pack
 mkdir -p "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows
 
