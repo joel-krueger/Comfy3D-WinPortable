@@ -39,10 +39,6 @@ git reset --hard "1.9"
 cd "$workdir"
 mv  python_embeded  Comfy3D_WinPortable/python_embeded
 
-# Copy start script files
-cp -rf "$workdir"/attachments/* \
-    "$workdir"/Comfy3D_WinPortable/
-
 # Download Impact-Pack & Subpack & models
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
 $gcs https://github.com/ltdrdata/ComfyUI-Impact-Pack.git
@@ -71,6 +67,10 @@ rm -rf "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows/_Example_Ou
 
 mv "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-3D-Pack/_Example_Workflows/_Example_Inputs_Files/* \
     "$workdir"/Comfy3D_WinPortable/ComfyUI/input/
+
+# Copy & overwrite attachments
+cp -rf "$workdir"/attachments/* \
+    "$workdir"/Comfy3D_WinPortable/
 
 # Clean up
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
