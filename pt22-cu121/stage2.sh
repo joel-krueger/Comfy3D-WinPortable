@@ -63,7 +63,15 @@ cd "$workdir"/Comfy3D_WinPortable
 mkdir extras
 cp ~/.u2net/u2net.onnx ./extras/u2net.onnx
 
-# Copy example files of 3D-Pack
+# Copy/Move example files of 3D-Pack
+mkdir -p "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows
+
+cp -r "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-3D-Pack/_Example_Workflows/. \
+    "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows/
+
+rm -rf "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows/_Example_Inputs_Files
+rm -rf "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows/_Example_Outputs
+
 mv "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-3D-Pack/_Example_Workflows/_Example_Inputs_Files/* \
     "$workdir"/Comfy3D_WinPortable/ComfyUI/input/
 
