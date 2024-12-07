@@ -3,7 +3,6 @@ addict
 aiohttp
 albumentations
 cachetools
-clip-interrogator==0.6.0
 color-matcher
 colour-science
 deepdiff
