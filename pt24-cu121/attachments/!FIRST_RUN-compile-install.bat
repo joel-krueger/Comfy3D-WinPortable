@@ -14,8 +14,5 @@ set PATH=%PATH%;%~dp0\python_embeded\Scripts
 
 @REM Compile-install pointnet2_ops for Triplane Gaussian Transformers
 
-git clone --depth=1 https://github.com/MrForExample/Comfy3D_Pre_Builds.git ^
- .\tmp_build\Comfy3D_Pre_Builds
-
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
- .\tmp_build\Comfy3D_Pre_Builds\_Libs\pointnet2_ops
+ .\extras\pointnet2_ops

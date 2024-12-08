@@ -79,6 +79,9 @@ rm -rf "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows/_Example_Ou
 mv "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-3D-Pack/_Example_Workflows/_Example_Inputs_Files/* \
     "$workdir"/Comfy3D_WinPortable/ComfyUI/input/
 
+# Move source files needed by user compile-install
+mv "$workdir"/Comfy3D_Pre_Builds/_Libs/*  "$workdir"/Comfy3D_WinPortable/extras/
+
 # Copy & overwrite attachments
 cp -rf "$workdir"/attachments/* \
     "$workdir"/Comfy3D_WinPortable/

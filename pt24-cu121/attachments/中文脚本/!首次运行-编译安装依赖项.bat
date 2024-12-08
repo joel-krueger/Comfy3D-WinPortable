@@ -15,8 +15,5 @@ set PIP_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 
 @REM 编译安装 pointnet2_ops ，该组件用于 Triplane Gaussian Transformers
 
-git clone --depth=1 https://ghp.ci/https://github.com/MrForExample/Comfy3D_Pre_Builds.git ^
- .\tmp_build\Comfy3D_Pre_Builds
-
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
- .\tmp_build\Comfy3D_Pre_Builds\_Libs\pointnet2_ops
+ .\extras\pointnet2_ops
