@@ -78,6 +78,13 @@ curl -sSL https://github.com/ninja-build/ninja/releases/latest/download/ninja-wi
 unzip -q -o ninja-win.zip -d "$workdir"/python_embeded/Scripts
 rm ninja-win.zip
 
+# Add aria2 binary
+curl -sSL https://github.com/aria2/aria2/releases/download/release-1.37.0/aria2-1.37.0-win-64bit-build1.zip \
+    -o aria2.zip
+unzip -q aria2.zip -d "$workdir"/aria2
+mv "$workdir"/aria2/*/aria2c.exe  "$workdir"/python_embeded/Scripts/
+rm aria2.zip
+
 # Setup Python embeded, part 3/3
 cd "$workdir"/python_embeded
 sed -i '1i../ComfyUI' ./python311._pth
