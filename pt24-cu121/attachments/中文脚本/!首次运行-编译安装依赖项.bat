@@ -11,9 +11,19 @@ set PATH=%PATH%;%~dp0\python_embeded\Scripts
 set PIP_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
- "git+https://ghp.ci/https://github.com/facebookresearch/pytorch3d.git@stable"
+ "git+https://ghp.ci/https://github.com/facebookresearch/pytorch3d.git@V0.7.8"
 
-@REM 编译安装 pointnet2_ops ，该组件用于 Triplane Gaussian Transformers
+@REM 编译安装 pointnet2_ops ，该组件用于 Triplane Gaussian
 
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
  .\extras\pointnet2_ops
+
+@REM 编译安装 diff-gaussian-rasterization ，该组件用于 Triplane Gaussian
+
+.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+ "git+https://ghp.ci/https://github.com/ashawkey/diff-gaussian-rasterization.git"
+
+@REM 编译安装 simple-knn
+
+.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+ .\extras\simple-knn
