@@ -5,7 +5,8 @@ set PATH=%PATH%;%~dp0\python_embeded\Scripts
 
 aria2c.exe ^
  "https://hf-mirror.com/stablediffusiontutorials/stable-diffusion-v1.5/resolve/main/v1-5-pruned-emaonly.safetensors?download=true" ^
- -d ".\ComfyUI\models\checkpoints"
+ -d ".\ComfyUI\models\checkpoints" ^
+ -o "v1-5-pruned-emaonly.safetensors"
 
 aria2c.exe ^
  "https://hf-mirror.com/spaces/Wuvin/Unique3D/resolve/main/ckpt/controlnet-tile/diffusion_pytorch_model.safetensors?download=true" ^
@@ -14,7 +15,8 @@ aria2c.exe ^
 
 aria2c.exe ^
  "https://hf-mirror.com/h94/IP-Adapter/resolve/main/models/ip-adapter_sd15.safetensors?download=true" ^
- -d ".\ComfyUI\models\ipadapter"
+ -d ".\ComfyUI\models\ipadapter" ^
+ -o "ip-adapter_sd15.safetensors"
 
 aria2c.exe ^
  "https://hf-mirror.com/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors?download=true" ^
