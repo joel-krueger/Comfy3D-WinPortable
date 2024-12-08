@@ -12,7 +12,7 @@ aria2c.exe ^
 aria2c.exe ^
  "https://huggingface.co/spaces/Wuvin/Unique3D/resolve/main/ckpt/controlnet-tile/diffusion_pytorch_model.safetensors?download=true" ^
  -d ".\ComfyUI\models\controlnet" ^
- -o "controlnet-tile-fine-tuned.safetensors"
+ -o "control_unique3d_sd15_tile.safetensors"
 
 aria2c.exe ^
  "https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter_sd15.safetensors?download=true" ^
