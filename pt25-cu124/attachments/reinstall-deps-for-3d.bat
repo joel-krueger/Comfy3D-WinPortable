@@ -12,7 +12,7 @@ echo affect the existing python_embeded.
 echo Regardless of success or failure, the temporary files will not be deleted.
 echo ################################################################################
 echo Require environment: C++ Build Tools (Visual Studio 2022), CUDA Toolkit, Git.
-echo Recommend to edit TORCH_CUDA_ARCH_LIST in this script to save build time.
+echo Recommend to edit TORCH_CUDA_ARCH_LIST in this script to reduce build time.
 echo ################################################################################
 echo Press Enter to continue...
 
@@ -52,7 +52,7 @@ git clone --depth=1 https://github.com/MrForExample/Comfy3D_Pre_Builds.git ^
  git+https://github.com/NVlabs/nvdiffrast.git
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- "git+https://github.com/facebookresearch/pytorch3d.git@stable"
+ "git+https://github.com/facebookresearch/pytorch3d.git"
 
 echo Build complete, installing...
 

@@ -10,7 +10,7 @@ set CMAKE_ARGS=-DBUILD_opencv_world=ON -DWITH_CUDA=ON -DCUDA_FAST_MATH=ON -DWITH
 set PATH=%PATH%;%~dp0\python_embeded\Scripts
 
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
- "git+https://github.com/facebookresearch/pytorch3d.git@V0.7.8"
+ "git+https://github.com/facebookresearch/pytorch3d.git"
 
 @REM Compile-install pointnet2_ops for Triplane Gaussian
 

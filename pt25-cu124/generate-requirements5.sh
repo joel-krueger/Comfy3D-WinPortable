@@ -3,7 +3,7 @@ set -eu
 
 array=(
 https://github.com/comfyanonymous/ComfyUI/raw/refs/tags/v0.3.7/requirements.txt
-https://github.com/MrForExample/ComfyUI-3D-Pack/raw/bdc5e3029ed96d9fa25e651e12fce1553a4422c4/requirements.txt
+https://github.com/MrForExample/ComfyUI-3D-Pack/raw/c1718943d8e13844332c346285685681fdba3070/requirements.txt
 https://github.com/kijai/ComfyUI-KJNodes/raw/refs/heads/main/requirements.txt
 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite/raw/refs/heads/main/requirements.txt
 https://github.com/ltdrdata/ComfyUI-Impact-Pack/raw/refs/heads/Main/requirements.txt
