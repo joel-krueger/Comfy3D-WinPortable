@@ -253,11 +253,17 @@ Note that `ComfyUI\custom_nodes\ComfyUI-3D-Pack` folder is not a git repository,
 ### Re-Compile and Re-Install Dependencies
 
 Just like the FIRST_RUN script did,
-the `reinstall-deps-for-3d.bat` script will attempt to download the latest source repos of 3D-Pack dependencies, 
-compile and install them.
+the `reinstall-deps-for-3d.bat` script will attempt to compile and install dependencies of 3D-Pack.
 
-Unlike the FIRST_RUN, this script will keep temporary files in the working folder, 
-and save the artifacts (.whl files), so you can re-use it in the same environment.
+You need to edit this file and set TORCH_CUDA_ARCH_LIST as well.
+
+There are few differences from the FIRST_RUN, this script will:
+
+** Download the latest source repos, not the targeted versions. This may help with compatibility issues when the FIRST_RUN doesn't work.
+
+** Additionally compile-install `kiuikit` and `nvdiffrast`. In my tests, it's not necessary to do so in the FIRST_RUN. I put them here for fail-safe.
+
+** Keep temporary files and save artifacts (.whl files) in the working folder `tmp_build`, allowing you to reuse them. Keep in mind they are not essentially portable.
 
 
 ## What's Next
