@@ -23,10 +23,10 @@ function change_url_or_pull () {
 
 change_url_or_pull ComfyUI
 
-# 这里使用 & 将任务置入后台，以实现多线程，并等待全部任务完成
+# 这里使用 & 将任务置入后台，以实现多线程（多进程），并等待全部任务完成
 cd ./ComfyUI/custom_nodes
 for D in *; do
-    if [ -d "${D}" ]; then
+    if [ -d "${D}" ] && [ "${D}" != "ComfyUI-3D-Pack" ]; then
         change_url_or_pull "${D}" &
     fi
 done
