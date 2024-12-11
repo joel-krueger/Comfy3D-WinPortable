@@ -1,0 +1,3 @@
+git+https://github.com/WASasquatch/cstr
+git+https://github.com/WASasquatch/ffmpy.git
+git+https://github.com/WASasquatch/img2texture.git
