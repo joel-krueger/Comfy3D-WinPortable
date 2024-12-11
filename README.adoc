@@ -187,16 +187,19 @@ You can see the line:
 
  set TORCH_CUDA_ARCH_LIST=6.1+PTX
 
-Edit it according to your GPU arch. For example, for RTX 4060 Ti, it should be:
+Edit it according to your 
+https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/[GPU arch].
+
+For example, for an RTX 4060 Ti, it should be:
 
  set TORCH_CUDA_ARCH_LIST=8.9
 
 
 2.3. Edit `run.bat`
 
-You can see the line:
+You can see the line (again):
 
- set TORCH_CUDA_ARCH_LIST=5.2+PTX;6.0;6.1+PTX;7.5;8.0;8.6;8.9+PTX
+ set TORCH_CUDA_ARCH_LIST=6.1+PTX
 
 Edit it like you just did in the last step.
 
@@ -206,7 +209,7 @@ There are few more settings available in this start script, such as:
 ** Do not open browser after starting
 
 Each line of configuration has a description above it.
-If needed, uncomment the according line (remove `rem ` at the beginning),
+If needed, uncomment the according line (remove `rem` at the beginning),
 edit it and save the file.
 
 ### 3. (Optional) Extra Config
@@ -224,14 +227,15 @@ In addition, I recommend to set the program folder (`Comfy3D_WinPortable`) to "F
 
 ### 4. First Start
 
-4.1. Run `!FIRST_RUN-compile-install.bat`. Wait until it finish installation. If it fails, simply try again.
+4.1. Run `!FIRST_RUN-compile-install.bat`. Wait until it finish installation. If it fails, simply run it again.
 
 4.2. If you are going to run Unique3D workflows, run `download-models-for-Unique3D.bat`.
 
-4.3. Run `run.bat`.After starting, the program will automatically open a browser, or you can visit: http://localhost:8188/
+4.3. Run `run.bat`. After starting, the program will automatically open a browser, or you can visit: http://localhost:8188/
 
-4.4. In the left sidebar, you can find the "Workflows" button, the example workflows are listed there. And the example input files are already in the `input` folder. Open a workflow and click "Queue" at bottom of the page to run the workflow.
+4.4. In the left sidebar, you can find the "Workflows" button, the example workflows are listed there. The example input files are already in the `input` folder. Open a workflow and click "Queue" at bottom of the page to run the workflow.
 
+To start the program in the future, simply run `run.bat`.
 
 ## Troubleshooting
 
@@ -253,7 +257,7 @@ Note that `ComfyUI\custom_nodes\ComfyUI-3D-Pack` folder is not a git repository,
 ### Re-Compile and Re-Install Dependencies
 
 Just like the FIRST_RUN script did,
-the `reinstall-deps-for-3d.bat` script will attempt to compile and install dependencies of 3D-Pack.
+the `reinstall-deps-for-3d.bat` script will attempt to compile and install the dependencies of 3D-Pack.
 
 You need to edit this file and set TORCH_CUDA_ARCH_LIST as well.
 
