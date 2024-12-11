@@ -26,3 +26,8 @@ set PATH=%PATH%;%~dp0\python_embeded\Scripts
 
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
  .\extras\simple-knn
+
+@REM Compile-install vox2seq for TRELLIS
+
+.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+ .\extras\vox2seq

@@ -52,6 +52,9 @@ git clone --depth=1 https://ghp.ci/https://github.com/MrForExample/Comfy3D_Pre_B
  .\tmp_build\Comfy3D_Pre_Builds\_Libs\simple-knn
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
+ .\tmp_build\Comfy3D_Pre_Builds\_Libs\vox2seq
+
+.\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
  git+https://ghp.ci/https://github.com/ashawkey/diff-gaussian-rasterization.git
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^

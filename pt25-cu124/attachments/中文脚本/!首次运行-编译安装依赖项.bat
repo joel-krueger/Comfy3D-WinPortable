@@ -27,3 +27,8 @@ set PIP_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
  .\extras\simple-knn
+
+@REM 编译安装 vox2seq ，该组件用于 TRELLIS
+
+.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+ .\extras\vox2seq

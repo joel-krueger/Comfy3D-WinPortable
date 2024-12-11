@@ -21,18 +21,18 @@ unzip -q python_embeded.zip -d "$workdir"/python_embeded
 # Download 3D-Pack
 # Note: zip archive doesn't contain the ".git" folder, it's not upgradable.
 cd "$workdir"
-curl -sSL https://github.com/MrForExample/ComfyUI-3D-Pack/archive/c1718943d8e13844332c346285685681fdba3070.zip \
-    -o ComfyUI-3D-Pack-c1718943d8e13844332c346285685681fdba3070.zip
-unzip -q ComfyUI-3D-Pack-c1718943d8e13844332c346285685681fdba3070.zip
-mv ComfyUI-3D-Pack-c1718943d8e13844332c346285685681fdba3070 ComfyUI-3D-Pack
-rm ComfyUI-3D-Pack-c1718943d8e13844332c346285685681fdba3070.zip
+curl -sSL https://github.com/MrForExample/ComfyUI-3D-Pack/archive/b015ed3918d6916ff2a2ee230beafe2169a5de51.zip \
+    -o ComfyUI-3D-Pack-b015ed3918d6916ff2a2ee230beafe2169a5de51.zip
+unzip -q ComfyUI-3D-Pack-b015ed3918d6916ff2a2ee230beafe2169a5de51.zip
+mv ComfyUI-3D-Pack-b015ed3918d6916ff2a2ee230beafe2169a5de51 ComfyUI-3D-Pack
+rm ComfyUI-3D-Pack-b015ed3918d6916ff2a2ee230beafe2169a5de51.zip
 
 cd "$workdir"
-curl -sSL https://github.com/MrForExample/Comfy3D_Pre_Builds/archive/cf049e995d0447808353f261cadfcd7e8aa5f0a5.zip \
-    -o Comfy3D_Pre_Builds-cf049e995d0447808353f261cadfcd7e8aa5f0a5.zip
-unzip -q Comfy3D_Pre_Builds-cf049e995d0447808353f261cadfcd7e8aa5f0a5.zip
-mv Comfy3D_Pre_Builds-cf049e995d0447808353f261cadfcd7e8aa5f0a5 Comfy3D_Pre_Builds
-rm Comfy3D_Pre_Builds-cf049e995d0447808353f261cadfcd7e8aa5f0a5.zip
+curl -sSL https://github.com/MrForExample/Comfy3D_Pre_Builds/archive/606a5cf09aef1ecaf0092f6b645ac46bc2772d86.zip \
+    -o Comfy3D_Pre_Builds-606a5cf09aef1ecaf0092f6b645ac46bc2772d86.zip
+unzip -q Comfy3D_Pre_Builds-606a5cf09aef1ecaf0092f6b645ac46bc2772d86.zip
+mv Comfy3D_Pre_Builds-606a5cf09aef1ecaf0092f6b645ac46bc2772d86 Comfy3D_Pre_Builds
+rm Comfy3D_Pre_Builds-606a5cf09aef1ecaf0092f6b645ac46bc2772d86.zip
 
 # Header files for ComfyUI-3D-Pack
 # Do this firstly (in a clean python_embeded folder)
