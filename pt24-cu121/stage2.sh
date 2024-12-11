@@ -63,12 +63,14 @@ $gcs https://github.com/ltdrdata/ComfyUI-Impact-Subpack.git impact_subpack
 cd "$workdir"/Comfy3D_WinPortable
 ./python_embeded/python.exe -s -B ComfyUI/main.py --quick-test-for-ci --cpu
 
-# Copy u2net model files needed by rembg (to avoid download at first start)
+# Download extra models
+# u2net model needed by rembg (to avoid download at first start)
 cd "$workdir"/Comfy3D_WinPortable
 mkdir extras
-cp ~/.u2net/u2net.onnx ./extras/u2net.onnx
+curl -sSL https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net.onnx \
+    -o ./extras/u2net.onnx
 
-# Download extra models
+# RealESRGAN_x4plus needed by example workflows
 curl -sSL https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth \
     -o "$workdir"/Comfy3D_WinPortable/ComfyUI/models/upscale_models/RealESRGAN_x4plus.pth
 

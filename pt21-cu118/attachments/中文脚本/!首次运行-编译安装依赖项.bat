@@ -31,12 +31,12 @@ set PIP_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 @REM 编译安装 kiuikit
 
 .\python_embeded\python.exe -s -m pip install ^
- git+https://github.com/ashawkey/kiuikit.git
+ "git+https://ghp.ci/https://github.com/ashawkey/kiuikit.git"
 
 @REM 编译安装 nvdiffrast
 
 .\python_embeded\python.exe -s -m pip install ^
- git+https://github.com/NVlabs/nvdiffrast.git
+ "git+https://ghp.ci/https://github.com/NVlabs/nvdiffrast.git"
 
 @REM 保证使用 numpy1
 
