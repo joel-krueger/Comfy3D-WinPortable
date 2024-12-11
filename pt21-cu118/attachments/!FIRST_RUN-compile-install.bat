@@ -9,20 +9,34 @@ set TORCH_CUDA_ARCH_LIST=6.1+PTX
 set CMAKE_ARGS=-DBUILD_opencv_world=ON -DWITH_CUDA=ON -DCUDA_FAST_MATH=ON -DWITH_CUBLAS=ON -DWITH_NVCUVID=ON
 set PATH=%PATH%;%~dp0\python_embeded\Scripts
 
-.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+.\python_embeded\python.exe -s -m pip install ^
  "git+https://github.com/facebookresearch/pytorch3d.git@V0.7.8"
 
 @REM Compile-install pointnet2_ops for Triplane Gaussian
 
-.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+.\python_embeded\python.exe -s -m pip install ^
  .\extras\pointnet2_ops
 
 @REM Compile-install diff-gaussian-rasterization for Triplane Gaussian
 
-.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+.\python_embeded\python.exe -s -m pip install ^
  "git+https://github.com/ashawkey/diff-gaussian-rasterization.git"
 
 @REM Compile-install simple-knn
 
-.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+.\python_embeded\python.exe -s -m pip install ^
  .\extras\simple-knn
+
+@REM Compile-install kiuikit
+
+.\python_embeded\python.exe -s -m pip install ^
+ git+https://github.com/ashawkey/kiuikit.git
+
+@REM Compile-install nvdiffrast
+
+.\python_embeded\python.exe -s -m pip install ^
+ git+https://github.com/NVlabs/nvdiffrast.git
+
+@REM Ensure numpy1
+
+.\python_embeded\python.exe -s -m pip install numpy==1.26.4

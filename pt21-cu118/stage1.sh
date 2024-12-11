@@ -14,7 +14,7 @@ ls -lahF
 
 # Download Python embeded
 cd "$workdir"
-curl -sSL https://github.com/adang1345/PythonWindows/raw/refs/heads/master/3.11.11/python-3.11.11-embed-amd64.zip \
+curl -sSL https://github.com/adang1345/PythonWindows/raw/refs/heads/master/3.10.16/python-3.10.16-embed-amd64.zip \
     -o python_embeded.zip
 unzip -q python_embeded.zip -d "$workdir"/python_embeded
 
@@ -37,16 +37,16 @@ rm Comfy3D_Pre_Builds-d11afaad1944278712f13865f0bb902a5fd9c745.zip
 # Header files for ComfyUI-3D-Pack
 # Do this firstly (in a clean python_embeded folder)
 mv \
-    "$workdir"/Comfy3D_Pre_Builds/_Python_Source_cpp/py311/include \
+    "$workdir"/Comfy3D_Pre_Builds/_Python_Source_cpp/py310/include \
     "$workdir"/python_embeded/include
 
 mv \
-    "$workdir"/Comfy3D_Pre_Builds/_Python_Source_cpp/py311/libs \
+    "$workdir"/Comfy3D_Pre_Builds/_Python_Source_cpp/py310/libs \
     "$workdir"/python_embeded/libs
 
 # Setup PIP
 cd "$workdir"/python_embeded
-sed -i 's/^#import site/import site/' ./python311._pth
+sed -i 's/^#import site/import site/' ./python310._pth
 curl -sSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 ./python.exe get-pip.py
 
@@ -59,10 +59,8 @@ $pip_exe install -r "$workdir"/requirements4.txt
 $pip_exe install -r "$workdir"/requirements5.txt
 $pip_exe install -r "$workdir"/requirements6.txt
 
-$pip_exe install "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py311_torch2.4.0_cu121/*.whl
-
 # From: https://github.com/rusty1s/pytorch_scatter?tab=readme-ov-file#binaries
-$pip_exe install torch-scatter -f https://data.pyg.org/whl/torch-2.4.0%2Bcu121.html
+$pip_exe install torch-scatter -f https://data.pyg.org/whl/torch-2.1.2%2Bcu118.html
 
 $pip_exe install -r "$workdir"/requirements9.txt
 
@@ -87,7 +85,7 @@ rm aria2.zip
 
 # Setup Python embeded, part 3/3
 cd "$workdir"/python_embeded
-sed -i '1i../ComfyUI' ./python311._pth
+sed -i '1i../ComfyUI' ./python310._pth
 
 $pip_exe list
 
