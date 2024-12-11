@@ -10,4 +10,4 @@ open-clip-torch==2.24.0
 # Forcing version to prevent PIP re-installing
 clip-interrogator==0.6.0
 diffusers==0.29.1
-torchvision==0.16.2
+torchvision==0.18.1

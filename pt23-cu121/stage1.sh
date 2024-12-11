@@ -60,7 +60,7 @@ $pip_exe install -r "$workdir"/requirements5.txt
 $pip_exe install -r "$workdir"/requirements6.txt
 
 # From: https://github.com/rusty1s/pytorch_scatter?tab=readme-ov-file#binaries
-$pip_exe install torch-scatter -f https://data.pyg.org/whl/torch-2.1.2%2Bcu118.html
+$pip_exe install torch-scatter -f https://data.pyg.org/whl/torch-2.3.1%2Bcu121.html
 
 $pip_exe install -r "$workdir"/requirements9.txt
 
