@@ -12,7 +12,7 @@ echo affect the existing python_embeded.
 echo Regardless of success or failure, the temporary files will not be deleted.
 echo ################################################################################
 echo Require environment: C++ Build Tools (Visual Studio 2022), CUDA Toolkit, Git.
-echo Recommend to edit TORCH_CUDA_ARCH_LIST in this script to save build time.
+echo Recommend to edit TORCH_CUDA_ARCH_LIST in this script to reduce build time.
 echo ################################################################################
 echo Press Enter to continue...
 
@@ -58,6 +58,6 @@ echo Build complete, installing...
 
 del .\tmp_build\numpy-2*.whl
 
-for %i in (.\tmp_build\*.whl) do .\python_embeded\python.exe -s -m pip install --force-reinstall "%i"
+for %%i in (.\tmp_build\*.whl) do .\python_embeded\python.exe -s -m pip install --force-reinstall "%%i"
 
 .\python_embeded\python.exe -s -m pip install numpy==1.26.4

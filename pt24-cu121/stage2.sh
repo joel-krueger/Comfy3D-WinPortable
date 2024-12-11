@@ -23,7 +23,12 @@ git reset --hard "v0.3.7"
 # CUSTOM NODES
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
 
+# 3D-Pack
 mv "$workdir"/ComfyUI-3D-Pack ./ComfyUI-3D-Pack
+# Make sure Manager won't update its deps anyway
+rm ./ComfyUI-3D-Pack/requirements.txt
+rm ./ComfyUI-3D-Pack/install.py
+rm -rf ./ComfyUI-3D-Pack/_Pre_Builds
 
 # Install ComfyUI-Manager but disable it by default
 git clone https://ghp.ci/https://github.com/ltdrdata/ComfyUI-Manager.git

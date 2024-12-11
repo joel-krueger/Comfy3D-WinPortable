@@ -20,7 +20,7 @@ git_pull ComfyUI
 
 cd ./ComfyUI/custom_nodes
 for D in *; do
-    if [ -d "${D}" ]; then
+    if [ -d "${D}" ] && [ "${D}" != "ComfyUI-3D-Pack" ]; then
         git_pull "${D}" &
     fi
 done

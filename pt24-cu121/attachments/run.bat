@@ -1,3 +1,6 @@
+@REM Edit this first! According to your GPU model.
+set TORCH_CUDA_ARCH_LIST=6.1+PTX
+
 @REM To set proxy, edit and uncomment the two lines below (remove 'rem ' in the beginning of line).
 rem set HTTP_PROXY=http://localhost:1081
 rem set HTTPS_PROXY=http://localhost:1081
@@ -13,10 +16,6 @@ rem set HF_TOKEN=
 @REM To enable HuggingFace Hub's experimental high-speed file transfer, uncomment the line below.
 @REM https://huggingface.co/docs/huggingface_hub/hf_transfer
 rem set HF_HUB_ENABLE_HF_TRANSFER=1
-
-@REM In order to save your time on compiling PyTorch JIT CPP extensions, edit this line according to your GPU arch.
-@REM Ref: https://github.com/ashawkey/stable-dreamfusion/issues/360#issuecomment-2292510049
-set TORCH_CUDA_ARCH_LIST=5.2+PTX;6.0;6.1+PTX;7.5;8.0;8.6;8.9+PTX
 
 @REM This command redirects HuggingFace-Hub to download model files in this folder.
 set HF_HUB_CACHE=%~dp0\HuggingFaceHub

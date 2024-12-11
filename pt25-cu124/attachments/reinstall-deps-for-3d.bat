@@ -61,6 +61,6 @@ echo Build complete, installing...
 
 del .\tmp_build\numpy-2*.whl
 
-for %i in (.\tmp_build\*.whl) do .\python_embeded\python.exe -s -m pip install --force-reinstall "%i"
+for %%i in (.\tmp_build\*.whl) do .\python_embeded\python.exe -s -m pip install --force-reinstall "%%i"
 
 .\python_embeded\python.exe -s -m pip install numpy==1.26.4
