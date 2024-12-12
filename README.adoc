@@ -133,7 +133,7 @@ to_conditioning_StableZero123
 |===
 
 
-## Before You Go
+## Before You Start...
 
 Few things I want to mention first, that may save you A LOT of time...
 
