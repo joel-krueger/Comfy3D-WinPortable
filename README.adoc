@@ -2,6 +2,9 @@
 
 image::screenshots-pt24/CharacterGen_Vanilla.webp["Screenshot"]
 
+[.text-center]
+English | *link:README.zh.adoc[中文]*
+
 A semi-portable package dedicated for running 
 https://github.com/MrForExample/ComfyUI-3D-Pack[ComfyUI-3D-Pack]
 on Windows.
@@ -14,7 +17,7 @@ targeting the
 https://github.com/MrForExample/ComfyUI-3D-Pack/tree/bdc5e3029ed96d9fa25e651e12fce1553a4422c4[Oct 18, 2024]
 version of ComfyUI-3D-Pack. Workflows that are "too new" or "too old" are not supported in this build.
 
-I have tested all the example workflows on a fairly-old TITAN Xp GPU (12GB VRAM). The results are as follows:
+I tested all the example workflows on a fairly-old TITAN Xp GPU (12GB VRAM). The results are as follows:
 
 [%autowidth,cols=4]
 |===
@@ -139,7 +142,9 @@ https://github.com/YanWenKun/StableFast3D-WinPortable[StableFast3D-WinPortable].
 It does only one thing and does it well.
 
 2. Everything in Comfy3D works more smoothly on Linux, as well as WSL2. Most 3D workflows are research-oriented and far from production-ready. By installing & running them you're essentially replicating the development environment used by researchers. Many components need to be compiled before running, and this is exactly where Linux excels.
-Check out my
+Check out
+https://github.com/MrForExample/ComfyUI-3D-Pack/blob/main/Dockerfile[Dockerfile]
+or my
 https://github.com/YanWenKun/ComfyUI-Docker/tree/main/comfy3d-pt25[Docker image]
 if you're familiar with containers.
 
@@ -159,7 +164,7 @@ https://developer.nvidia.com/cuda-12-4-1-download-archive?target_os=Windows&targ
 Both are fine, choose 12.4.1 if you have other newer ComfyUI instances.
 
 ** Only
-https://github.com/YanWenKun/ComfyUI-Windows-Portable/raw/refs/heads/main/docs/cuda-toolkit-install-selection.webp[Libraries and Compilers]
+https://github.com/YanWenKun/ComfyUI-Windows-Portable/raw/c305814599057e77baa72a76eacd21cf021d1656/docs/cuda-toolkit-install-selection.webp[Libraries and Compilers]
 are needed to install.
 
 ** If your GPU driver is outdated (<530 for CUDA 12.1, <550 for CUDA 12.4), you can install the driver provided by the CUDA Toolkit installer. Otherwise, you don't need to downgrade the driver version.
@@ -172,6 +177,12 @@ https://aka.ms/vs/17/release/vs_BuildTools.exe[EXE]
 ).
 
 ** During the setup, select "Desktop development with C++" workload.
+
+** If you're using CUDA 12.1, you need to select MSVC 17.4 (or
+https://docs.nvidia.com/cuda/archive/12.1.0/cuda-installation-guide-microsoft-windows/index.html#id2[earlier]
+).
+
+** For CUDA 12.4, it's fine to use current default MSVC 17.12.
 
 ### 2. Download and Config
 
@@ -215,7 +226,7 @@ edit it and save the file.
 ### 3. (Optional) Extra Config
 
 3.1. The ComfyUI-Manager and AIGODLIKE-ComfyUI-Translation are installed but disabled.
-If you really want to use them, in `ComfyUI\custom_nodes` folder, rename them, remove the trailing `.disabled` so they will be loaded on start.
+If you really want to use them, in `ComfyUI\custom_nodes` folder, rename them and remove the trailing `.disabled`, so they will be loaded on start.
 
 ** ComfyUI-Manager may damage the dependencies of Comfy3D, so it's disabled by default.
 ** https://github.com/AIGODLIKE/AIGODLIKE-ComfyUI-Translation[AIGODLIKE-ComfyUI-Translation] is for multilingual translation of ComfyUI.

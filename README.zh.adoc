@@ -1,0 +1,337 @@
+# Comfy3D Windows 整合包
+
+image::screenshots-pt24/CharacterGen_Vanilla.webp["Screenshot"]
+
+[.text-center]
+中文 | *link:README.adoc[English]*
+
+用于在 Windows 上运行 
+https://github.com/MrForExample/ComfyUI-3D-Pack[ComfyUI-3D-Pack]
+的整合包。
+
+## 背景
+
+“通过图片生成 3D 模型”是一项热门研究领域，且有众多开源项目，
+但大部分项目以研究导向为主，开发者也多为 AI 研究人员而非专业软件开发者，
+因而照顾到部署便利性的项目并不多。
+
+https://github.com/MrForExample/ComfyUI-3D-Pack[ComfyUI-3D-Pack]
+试图将诸多模型的下载、使用整合到 ComfyUI 节点中，并提供示例工作流以便于用户理解、使用，其作者为此付出了很大努力。
+
+但由于整个 AI3D 生态都是建立在面向研究的基础上的，用户在部署运行 AI3D 模型时，相当程度上是在复现研究者的开发环境。
+强如 Stability AI，其
+https://github.com/Stability-AI/stable-fast-3d[Stable Fast 3D]
+也需要运行时编译部分内容，且对 Windows 仅“实验性支持”，生态特点可见一斑。
+
+与此同时，AI 领域依然在狂飙猛进，PyTorch 一年内从 2.1 飙到了 2.5，ComfyUI 也总是在第一时间适配最新技术。
+但不是整个生态都能跟得上前锋的节奏，不少关键项目是要慢半拍的，比如 3D-Pack 要用到的
+https://github.com/rusty1s/pytorch_scatter[PyTorch Scatter]
+和
+https://github.com/facebookresearch/pytorch3d[PyTorch3D]
+。
+而更细分的研究领域就更跟不上了，在一些研究成果的展示中，使用的 PyTorch 甚至还停留在 1.x，作者们忙于新的研究也不太可能专门来更新维护旧的项目。
+
+综上种种，导致了 3D-Pack 兼容性问题频发，这一点不应苛责相关作者。
+
+我在创建维护
+https://github.com/YanWenKun/ComfyUI-Windows-Portable[ComfyUI-Windows-Portable]
+的过程中处理了大量有关 3D-Pack 兼容问题的提问。
+日积月累，有感而发。
+遂创建了这个仓库，尝试定点解决相关问题。
+
+
+## 兼容列表
+
+当前整合包 `pt24-cu121` 基于 PyTorch 2.4.0 和 CUDA 12.1，
+针对
+https://github.com/MrForExample/ComfyUI-3D-Pack/tree/bdc5e3029ed96d9fa25e651e12fce1553a4422c4[2024/10/18]
+版本的 ComfyUI-3D-Pack 构建，
+“太新”或“太旧”的工作流均不做支持。
+
+我在一块古老的 TITAN Xp (12GB VRAM) 上测试了所有样例工作流，结果如下：
+
+
+[%autowidth,cols=4]
+|===
+|工作流|结果|截图|备注
+
+|CharacterGen_Vanilla
+|🆗
+|link:screenshots-pt24/CharacterGen_Vanilla.webp[🖼️]
+|
+
+|CharacterGen_to_Unique3D
+|🆗
+|link:screenshots-pt24/CharacterGen_to_Unique3D.webp[🖼️]
+|
+
+|CharacterGen_InstantMesh
+|❓
+|
+|在节点 "InstantMesh Reconstruction Model" 内存溢出
+
+|CRM MVDiffusion_to_Craftsman
+|🆗
+|link:screenshots-pt24/CRM_MVDiffusion_to_Craftsman.webp[🖼️]
+|
+
+|CRM MVDiffusion_to_Unique3D
+|🆗
+|link:screenshots-pt24/CRM_MVDiffusion_to_Unique3D.webp[🖼️]
+|
+
+|CRM_Img_to_Multi-views_to_CCMs_to_Mesh
+|🆗
+|link:screenshots-pt24/CRM_Img_to_Multi-views_to_CCMs_to_Mesh.webp[🖼️]
+|
+
+|CRM MVDiffusion_to_InstantMesh
+|❌
+|
+|PyTorch 版本不兼容
+
+|CRM_T2I_V2 +
+CRM_T2I_V3
+|❓
+|
+|https://github.com/MrForExample/ComfyUI-3D-Pack/issues/311[模型尚未发布]
+
+|Unique3D_All_Stages
+|🆗
+|link:screenshots-pt24/Unique3D_All_Stages.webp[🖼️]
+|该工作流已包含 Unique3D 0~3 步骤，此处省略
+
+|Unique3D_with_Era3D_All
+|❌
+|
+|PyTorch 版本不兼容
+
+|[FlexiCubes] Multi-View Depth plus Optional Normal maps to 3D Mesh
+|🆗
+|link:screenshots-pt24/FlexiCubes.webp[🖼️]
+|
+
+|Era3D_to_InstantMesh
+|❌
+|
+|PyTorch 版本不兼容
+
+|Multi-View-Images_to_Instant-NGP_to_ DiffRast_to_3DMesh
+|❌
+|
+|"Instant NGP" 节点报错 ('NoneType' object has no attribute 'ray_aabb_intersect')
+
+|MVDream_to_Large_Multiview_Gaussian_ Model_to_3DGS and_3DMesh
+|❌
+|
+|"Convert 3DGS to Mesh with NeRF and Marching Cubes" 节点报错 ('NoneType' object has no attribute 'ray_aabb_intersect')
+
+|Render_Mesh_and_3DGS_Example
+|🆗
+|link:screenshots-pt24/Render_Mesh_and_3DGS_Example.webp[🖼️]
+|
+
+|StableFast3D_to_Mesh
+|🆗
+|link:screenshots-pt24/StableFast3D_to_Mesh.webp[🖼️]
+|见“额外建议”
+
+|Triplane_Gaussian_Transformers_to_ 3DGS_and_3DMesh
+|❌
+|
+|"Convert 3DGS to Mesh with NeRF and Marching Cubes" 节点报错 ('NoneType' object has no attribute 'ray_aabb_intersect')
+
+|TripoSR_to_Mesh
+|🆗
+|link:screenshots-pt24/TripoSR_to_Mesh.webp[🖼️]
+|最易运行的模型
+
+|Using_Stack_Orbit_Camera_Poses_
+to_conditioning_StableZero123
+|🆗
+|link:screenshots-pt24/Orbit_Camera.webp[🖼️]
+|
+
+|Wonder3D_to_Large_Multiview_ Gaussian_Model_to_3DGS and_3DMesh
+|❌
+|
+|"Convert 3DGS to Mesh with NeRF and Marching Cubes" 节点报错 ('NoneType' object has no attribute 'ray_aabb_intersect')
+
+|Zero123Plus_to_InstantMesh
+|🆗
+|link:screenshots-pt24/Zero123Plus_to_InstantMesh.webp[🖼️]
+|
+
+|===
+
+
+### 额外建议
+
+* 如果你想运行 
+https://github.com/Stability-AI/stable-fast-3d[Stable Fast 3D]
+，建议用我的另一个整合包
+https://github.com/YanWenKun/StableFast3D-WinPortable[StableFast3D-WinPortable]
+，它只做这一件事。
+
+* 如果需要运行上述不兼容的工作流，可尝试在 Linux / WSL2 下运行。
+Linux 下通过 GCC 生态编译 CUDA 核函数要顺畅得多，甚至可移植性也更好。
+可以参考 3D-Pack 提供的
+https://github.com/MrForExample/ComfyUI-3D-Pack/blob/main/Dockerfile[Dockerfile]
+或我的
+https://github.com/YanWenKun/ComfyUI-Docker/tree/main/comfy3d-pt25[Docker 镜像]
+。
+
+## 使用步骤
+
+### 1. 基本需求
+
+1.1. 了解你的 GPU CUDA 架构版本，比如 RTX 2080 是 `7.5`，RTX 3090 是 `8.6`，RTX 4090 是 `8.9`。
+完整列表可以看
+https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/[这篇文章]
+。
+
+1.2. 安装
+https://developer.nvidia.com/cuda-12-1-1-download-archive?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_network[CUDA Toolkit 12.1.1]
+或
+https://developer.nvidia.com/cuda-12-4-1-download-archive?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_network[CUDA Toolkit 12.4.1]
+，两者均可，建议用 12.4.1 以便于兼容新版 MSVC。
+
+** 安装时仅需要选择
+https://github.com/YanWenKun/ComfyUI-Windows-Portable/raw/c305814599057e77baa72a76eacd21cf021d1656/docs/cuda-toolkit-install-selection.webp[Libraries 与 Compilers]
+。
+
+** 如果显卡驱动较老 （对于 CUDA 12.1，低于 530；对于 CUDA 12.4，低于 550），
+安装 CUDA Toolkit 时可一并选择安装新驱动。该工具不会安装最新驱动，而是 CUDA 12.x 对应版本。如果已经安装了更新版本的驱动，则没有必要降级。
+
+1.3. 安装 Visual Studio Build Tools 2022
+（
+https://visualstudio.microsoft.com/downloads/?q=build+tools[下载页面]
+|
+https://aka.ms/vs/17/release/vs_BuildTools.exe[安装程序]
+），
+
+** 在安装界面选择“桌面C++开发”。
+
+** 如果你在上一步中选用 CUDA 12.1，你需要在安装时选择 MSVC 17.4 相关组件
+（或
+https://docs.nvidia.com/cuda/archive/12.1.0/cuda-installation-guide-microsoft-windows/index.html#id2[更早版本]
+）。
+
+** 如果选用 CUDA 12.4，使用当前默认的 MSVC 17.12 即可。
+
+** 如已安装 Visual Studio C++ 工作负载，不必重复安装。Build Tools 与普通 VS 基本相同，只是没有 GUI 界面。
+
+### 2. 下载并配置
+
+2.1. 在 Releases 页面下载压缩包：
+
+** https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r2-pt24
+** 注意有多个文件（压缩包分卷），需要全部下载后解压。
+
+
+2.2. （按需）改用中文脚本
+
+** 这些脚本全部为中文注释，并配置了大陆地区镜像站点，避免卡下载。
+** 将 `中文脚本` 目录下的文件复制到上一级目录下即可。
+** 脚本之间无调用关系，英文脚本文件可以移走或删除。
+
+
+2.3. 编辑 `!首次运行-编译安装依赖项.bat`
+
+将该行：
+
+ set TORCH_CUDA_ARCH_LIST=6.1+PTX
+
+根据你的 
+https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/[GPU 架构]
+来修改。
+
+
+比如 RTX 4060 Ti 用户应配置为：
+
+ set TORCH_CUDA_ARCH_LIST=8.9
+
+
+2.4. 编辑 `run_cn.bat`
+
+同样的，修改该行：
+
+ set TORCH_CUDA_ARCH_LIST=6.1+PTX
+
+此外，该脚本中还有若干可选项，比如：
+
+** 配置代理（如遇到下载模型时卡住的情况，可尝试配置）
+** 是否自动打开浏览器
+
+各项均有相应说明，可按需取消注释（删除行首的 `rem`）并编辑保存文件。
+
+
+### 3. （可选步骤）额外配置
+
+3.1. 整合包中已安装
+ComfyUI-Manager（ComfyUI 管家／管理器）和
+AIGODLIKE-ComfyUI-Translation（ComfyUI 界面翻译），
+但是默认未启用。
+
+** 因之前一些 issues 中，使用者有意无意间让 ComfyUI-Manager 更新升级了 Python 包，导致 Comfy3D 依赖项不兼容，故这里默认禁用。
+
+** 界面翻译插件没有兼容问题，这里只是本着最小化原则没有默认启用。
+
+** 如需启用，在 `ComfyUI\custom_nodes` 找到对应文件夹，将其重命名，去掉末尾的 `.disabled`，这样 ComfyUI 启动时就会将其加载。
+
+
+3.2. 如果你想用 Sandboxie 沙盒来隔离整个 Python + ComfyUI 实例，接下来的步骤就该在沙盒中进行了。
+并且为了 I/O 性能（程序最多可下载上百GB模型文件），建议在“沙盒选项”-“资源访问”中，将程序主目录（`Comfy3D_WinPortable`）配置为“开放”。
+
+
+### 4. 首次启动
+
+4.1. 运行 `!首次运行-编译安装依赖项.bat` ，等待其完成编译、安装。如果过程中失败，再次运行该脚本即可。
+
+4.2. 如果你需要运行 Unique3D 相关工作流，运行 `下载Unique3D所需模型.bat` 。
+
+4.3. 运行 `run_cn.bat` ，待启动完毕后，程序会自动打开浏览器，或可手动访问： http://localhost:8188/
+
+4.4. 在网页左侧，找到“工作流”按钮，点击后可看到 3D-Pack 样例工作流，相关的样例文件也已经放在 `input` 目录下。
+打开一个工作流，点击“队列”或“Queue”即可开始执行。
+
+如需关闭程序，关闭命令行窗口即可。
+
+再次启动程序时，只需运行 `run_cn.bat` 即可。
+
+
+## 备用脚本
+
+### 强制更新
+
+不建议更新本整合包中的任何组件，无论是 Python 包、ComfyUI 还是自定义节点（”能用勿修“）。
+
+但若确有需要，整合包中提供了一个脚本。你需要装有 Git for Windows，在 Git Bash 中运行该命令：
+
+ bash 使用国内镜像强制更新全部节点.sh
+
+该脚本会 git-pull 更新 ComfyUI 和各节点，但 `ComfyUI-3D-Pack` 除外，该文件夹不是一个 git 仓库，不受 git 命令影响。
+
+
+### 重新编译安装依赖项
+
+运行 `重新编译安装3D-Pack依赖项.bat` 即可，注意该文件同样需要修改 `TORCH_CUDA_ARCH_LIST` 。
+
+与“首次运行”脚本不同的是：
+
+** 该脚本不是下载特定版本的依赖项源代码，而是下载最新版本。考虑到用户执行该脚本时，很可能是“首次运行”脚本不起作用的情况，故此设计。
+
+** 该脚本会额外编译安装 `kiuikit` 与 `nvdiffrast`。在我之前的测试中，这两者没必要放入“首次运行”脚本中，此处补全以防万一。
+
+** 该脚本会在 `tmp_build` 目录下保留临时文件，并保存轮子（.whl）文件，以便日后复用。注意这些二进制文件并非完整可移植，在其他机器上很可能报错。
+
+
+## 未来版本
+
+下一版会基于
+PyTorch 2.5.1
+和 CUDA 12.4，
+并且只关注 2024 年 11 月后的新模型／工作流，比如 混元3D-1 等。
+
+其构建脚本已经完成，本地简单测试也可用，如果你想提前体验，可以利用 GitHub Actions 自行构建，方法：先 fork 本仓库，然后在 Actions 页面下找到 Build & Upload pt25-cu124 Package，再点击 Run workflow 即可。
+待流水线执行完毕后，在 Releases 页面即可找到待发布状态的文件，下载解压即可，使用方法与当前版本相同。
