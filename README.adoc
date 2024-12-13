@@ -287,5 +287,5 @@ The next package will be based on PyTorch 2.5.1 with CUDA 12.4.
 It will only focus on new workflows since November 2024, such as Hunyuan3D-1.
 
 It's now working but not released yet.
-If you need a preview, simply fork this repo and go to "Actions" page, then you can build it using GitHub Actions.
+If you'd like to have a preview, simply fork this repo and go to "Actions" page, then you can build it using GitHub Actions.
 After building, you can find the 7z files in "Releases" page and download them.
