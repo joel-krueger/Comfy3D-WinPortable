@@ -188,7 +188,7 @@ https://docs.nvidia.com/cuda/archive/12.1.0/cuda-installation-guide-microsoft-wi
 
 2.1. Download the package files from the release page:
 
-** https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r2-pt24
+** https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r3-pt24
 ** Note that there are multiple files (compressed in volumes) that need to be downloaded. Extract it to a convenient place.
 
 

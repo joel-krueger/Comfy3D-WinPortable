@@ -225,7 +225,7 @@ https://docs.nvidia.com/cuda/archive/12.1.0/cuda-installation-guide-microsoft-wi
 
 2.1. 在 Releases 页面下载压缩包：
 
-** https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r2-pt24
+** https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r3-pt24
 ** 注意有多个文件（压缩包分卷），需要全部下载后解压。
 
 
