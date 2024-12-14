@@ -38,11 +38,13 @@ $gcs https://github.com/AIGODLIKE/AIGODLIKE-ComfyUI-Translation.git
 mv AIGODLIKE-ComfyUI-Translation AIGODLIKE-ComfyUI-Translation.disabled
 
 $gcs https://github.com/cubiq/ComfyUI_IPAdapter_plus.git
+$gcs https://github.com/edenartlab/eden_comfy_pipelines.git
 $gcs https://github.com/kijai/ComfyUI-KJNodes.git
 $gcs https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
+$gcs https://github.com/ltdrdata/ComfyUI-Impact-Pack.git
+$gcs https://github.com/ltdrdata/ComfyUI-Impact-Subpack.git
 $gcs https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git
 $gcs https://github.com/WASasquatch/was-node-suite-comfyui.git
-$gcs https://github.com/edenartlab/eden_comfy_pipelines.git
 
 git clone https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git
 cd ComfyUI-Inspire-Pack
@@ -51,12 +53,10 @@ git reset --hard "1.9"
 cd "$workdir"
 mv  python_embeded  Comfy3D_WinPortable/python_embeded
 
-# Download Impact-Pack & Subpack & models
-cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
-$gcs https://github.com/ltdrdata/ComfyUI-Impact-Pack.git
-cd ComfyUI-Impact-Pack
-$gcs https://github.com/ltdrdata/ComfyUI-Impact-Subpack.git impact_subpack
-# Use its installer to download models
+# Download models for Impact-Pack & Impact-Subpack
+cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-Impact-Pack
+"$workdir"/Comfy3D_WinPortable/python_embeded/python.exe -s -B install.py
+cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-Impact-Subpack
 "$workdir"/Comfy3D_WinPortable/python_embeded/python.exe -s -B install.py
 
 # Run test, also let custom nodes download some models
@@ -96,6 +96,5 @@ cp -rf "$workdir"/attachments/* \
 # Clean up
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
 rm ./was-node-suite-comfyui/was_suite_config.json
-rm ./ComfyUI-Impact-Pack/impact-pack.ini
 
 cd "$workdir"
