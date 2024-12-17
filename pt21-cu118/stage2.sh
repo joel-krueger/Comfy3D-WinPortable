@@ -31,7 +31,7 @@ rm ./ComfyUI-3D-Pack/install.py
 rm -rf ./ComfyUI-3D-Pack/_Pre_Builds
 
 # Install ComfyUI-Manager but disable it by default
-git clone https://ghp.ci/https://github.com/ltdrdata/ComfyUI-Manager.git
+git clone https://github.com/ltdrdata/ComfyUI-Manager.git
 mv ComfyUI-Manager ComfyUI-Manager.disabled
 
 $gcs https://github.com/AIGODLIKE/AIGODLIKE-ComfyUI-Translation.git
