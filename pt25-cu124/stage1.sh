@@ -21,11 +21,11 @@ unzip -q python_embeded.zip -d "$workdir"/python_embeded
 # Download 3D-Pack
 # Note: zip archive doesn't contain the ".git" folder, it's not upgradable.
 cd "$workdir"
-curl -sSL https://github.com/MrForExample/ComfyUI-3D-Pack/archive/b015ed3918d6916ff2a2ee230beafe2169a5de51.zip \
-    -o ComfyUI-3D-Pack-b015ed3918d6916ff2a2ee230beafe2169a5de51.zip
-unzip -q ComfyUI-3D-Pack-b015ed3918d6916ff2a2ee230beafe2169a5de51.zip
-mv ComfyUI-3D-Pack-b015ed3918d6916ff2a2ee230beafe2169a5de51 ComfyUI-3D-Pack
-rm ComfyUI-3D-Pack-b015ed3918d6916ff2a2ee230beafe2169a5de51.zip
+curl -sSL https://github.com/MrForExample/ComfyUI-3D-Pack/archive/0880fa8d2945b8abb990ad768e0cfe704e0d025e.zip \
+    -o ComfyUI-3D-Pack-0880fa8d2945b8abb990ad768e0cfe704e0d025e.zip
+unzip -q ComfyUI-3D-Pack-0880fa8d2945b8abb990ad768e0cfe704e0d025e.zip
+mv ComfyUI-3D-Pack-0880fa8d2945b8abb990ad768e0cfe704e0d025e ComfyUI-3D-Pack
+rm ComfyUI-3D-Pack-0880fa8d2945b8abb990ad768e0cfe704e0d025e.zip
 
 cd "$workdir"
 curl -sSL https://github.com/MrForExample/Comfy3D_Pre_Builds/archive/606a5cf09aef1ecaf0092f6b645ac46bc2772d86.zip \
@@ -58,14 +58,13 @@ $pip_exe install -r "$workdir"/requirements3.txt
 $pip_exe install -r "$workdir"/requirements4.txt
 $pip_exe install -r "$workdir"/requirements5.txt
 $pip_exe install -r "$workdir"/requirements6.txt
+$pip_exe install -r "$workdir"/requirements7.txt
+$pip_exe install -r "$workdir"/requirements8.txt
 
 rm "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py312_torch2.5.1_cu124/torch_scatter-2.1.2-cp312-cp312-win_amd64.whl
 $pip_exe install "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py312_torch2.5.1_cu124/*.whl
 
-# From: https://github.com/rusty1s/pytorch_scatter?tab=readme-ov-file#binaries
-$pip_exe install torch-scatter -f https://data.pyg.org/whl/torch-2.5.1%2Bcu124.html
-
-$pip_exe install -r "$workdir"/requirements9.txt
+$pip_exe install -r "$workdir"/requirementsA.txt
 
 # Add Ninja binary (replacing PIP Ninja)
 ## The 'python_embeded\Scripts\ninja.exe' is not working,

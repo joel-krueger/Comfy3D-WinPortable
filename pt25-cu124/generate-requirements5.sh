@@ -1,9 +1,11 @@
 #!/bin/bash
 set -eu
 
+echo '#' > requirements5.txt
+
 array=(
 https://github.com/comfyanonymous/ComfyUI/raw/refs/tags/v0.3.7/requirements.txt
-https://github.com/MrForExample/ComfyUI-3D-Pack/raw/b015ed3918d6916ff2a2ee230beafe2169a5de51/requirements.txt
+https://github.com/MrForExample/ComfyUI-3D-Pack/raw/0880fa8d2945b8abb990ad768e0cfe704e0d025e/requirements.txt
 https://github.com/kijai/ComfyUI-KJNodes/raw/refs/heads/main/requirements.txt
 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite/raw/refs/heads/main/requirements.txt
 https://github.com/ltdrdata/ComfyUI-Impact-Pack/raw/refs/heads/Main/requirements.txt
@@ -23,9 +25,9 @@ sed -i 's/[[:space:]]*$//' requirements5.txt
 sed -i 's/>=.*$//' requirements5.txt
 sed -i 's/_/-/g' requirements5.txt
 
+sort -ufo requirements5.txt requirements5.txt
+
 # Remove duplicate items, compare to requirements4.txt
 grep -Fixv -f requirements4.txt requirements5.txt > temp.txt && mv temp.txt requirements5.txt
-
-sort -uo requirements5.txt requirements5.txt
 
 echo "<requirements5.txt> generated. Check before use."

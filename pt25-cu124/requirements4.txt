@@ -3,6 +3,7 @@ aiohttp
 diffusers
 einops
 fairscale
+flash-attn
 ftfy
 huggingface-hub[hf-transfer]
 imageio
@@ -28,6 +29,7 @@ scipy
 sentencepiece
 soundfile
 spandrel
+spconv-cu124
 timm
 tokenizers
 torchmetrics
