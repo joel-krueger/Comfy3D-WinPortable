@@ -3,7 +3,6 @@ aiohttp
 diffusers
 einops
 fairscale
-flash-attn
 ftfy
 huggingface-hub[hf-transfer]
 imageio

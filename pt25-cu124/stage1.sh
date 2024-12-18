@@ -28,11 +28,11 @@ mv ComfyUI-3D-Pack-0880fa8d2945b8abb990ad768e0cfe704e0d025e ComfyUI-3D-Pack
 rm ComfyUI-3D-Pack-0880fa8d2945b8abb990ad768e0cfe704e0d025e.zip
 
 cd "$workdir"
-curl -sSL https://github.com/MrForExample/Comfy3D_Pre_Builds/archive/606a5cf09aef1ecaf0092f6b645ac46bc2772d86.zip \
-    -o Comfy3D_Pre_Builds-606a5cf09aef1ecaf0092f6b645ac46bc2772d86.zip
-unzip -q Comfy3D_Pre_Builds-606a5cf09aef1ecaf0092f6b645ac46bc2772d86.zip
-mv Comfy3D_Pre_Builds-606a5cf09aef1ecaf0092f6b645ac46bc2772d86 Comfy3D_Pre_Builds
-rm Comfy3D_Pre_Builds-606a5cf09aef1ecaf0092f6b645ac46bc2772d86.zip
+curl -sSL https://github.com/MrForExample/Comfy3D_Pre_Builds/archive/ac9f238f092b94ba319ce06f3ccd80b9d0f6c8c4.zip \
+    -o Comfy3D_Pre_Builds-ac9f238f092b94ba319ce06f3ccd80b9d0f6c8c4.zip
+unzip -q Comfy3D_Pre_Builds-ac9f238f092b94ba319ce06f3ccd80b9d0f6c8c4.zip
+mv Comfy3D_Pre_Builds-ac9f238f092b94ba319ce06f3ccd80b9d0f6c8c4 Comfy3D_Pre_Builds
+rm Comfy3D_Pre_Builds-ac9f238f092b94ba319ce06f3ccd80b9d0f6c8c4.zip
 
 # Header files for ComfyUI-3D-Pack
 # Do this firstly (in a clean python_embeded folder)
@@ -58,12 +58,12 @@ $pip_exe install -r "$workdir"/requirements3.txt
 $pip_exe install -r "$workdir"/requirements4.txt
 $pip_exe install -r "$workdir"/requirements5.txt
 $pip_exe install -r "$workdir"/requirements6.txt
-$pip_exe install -r "$workdir"/requirements7.txt
-$pip_exe install -r "$workdir"/requirements8.txt
 
 rm "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py312_torch2.5.1_cu124/torch_scatter-2.1.2-cp312-cp312-win_amd64.whl
 $pip_exe install "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py312_torch2.5.1_cu124/*.whl
 
+$pip_exe install -r "$workdir"/requirements8.txt
+$pip_exe install -r "$workdir"/requirements9.txt
 $pip_exe install -r "$workdir"/requirementsA.txt
 
 # Add Ninja binary (replacing PIP Ninja)

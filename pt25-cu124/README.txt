@@ -1,3 +1,5 @@
-This build is working, but not released yet.
+How to build:
 
-If you need, simply fork this repo and go to "Actions" page, then you can build it using GitHub Actions.
+1. Fork this repo on GitHub
+2. Run the build operations in "Actions" page
+3. Download the artifact in "Releases" page

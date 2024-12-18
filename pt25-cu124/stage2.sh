@@ -14,11 +14,9 @@ mkdir -p "$workdir"/Comfy3D_WinPortable
 export HF_HUB_CACHE="$workdir/Comfy3D_WinPortable/HuggingFaceHub"
 mkdir -p "$HF_HUB_CACHE"
 
-# ComfyUI main app
+# ComfyUI main app (latest)
 git clone https://github.com/comfyanonymous/ComfyUI.git \
     "$workdir"/Comfy3D_WinPortable/ComfyUI
-cd "$workdir"/Comfy3D_WinPortable/ComfyUI
-git reset --hard "v0.3.7"
 
 # CUSTOM NODES
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
@@ -30,8 +28,8 @@ rm ./ComfyUI-3D-Pack/requirements.txt
 rm ./ComfyUI-3D-Pack/install.py
 rm -rf ./ComfyUI-3D-Pack/_Pre_Builds
 
-# Install ComfyUI-Manager but disable it by default
-# Not this time
+# ComfyUI-Manager
+# This time not disable it
 $gcs https://github.com/ltdrdata/ComfyUI-Manager.git
 # mv ComfyUI-Manager ComfyUI-Manager.disabled
 
@@ -86,6 +84,26 @@ mv "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-3D-Pack/_Example_
 
 # Move source files needed by user compile-install
 mv "$workdir"/Comfy3D_Pre_Builds/_Libs/*  "$workdir"/Comfy3D_WinPortable/extras/
+
+# Download more source repos
+cd "$workdir"/Comfy3D_WinPortable/extras/
+
+curl -sSL https://github.com/EasternJournalist/utils3d/archive/refs/heads/main.zip \
+    -o temp.zip
+unzip -q temp.zip
+mv utils3d-main utils3d
+rm temp.zip
+
+
+cd "$workdir"/Comfy3D_WinPortable/extras/
+
+curl -sSL https://github.com/autonomousvision/mip-splatting.git \
+    -o temp.zip
+unzip -q temp.zip
+mv TRELLIS-main TRELLIS
+rm temp.zip
+
+
 
 # Copy & overwrite attachments
 cp -rf "$workdir"/attachments/* \

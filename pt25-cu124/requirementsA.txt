@@ -3,3 +3,7 @@ numpy==1.26.4
 
 # For ComfyUI-Manager
 matrix-client==0.4.0
+
+# For TRELLIS demo
+gradio==4.44.1
+gradio_litmodel3d==0.0.1
