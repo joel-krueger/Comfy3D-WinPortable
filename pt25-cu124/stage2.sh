@@ -9,12 +9,16 @@ export PATH="$PATH:$workdir/Comfy3D_WinPortable/python_embeded/Scripts"
 
 ls -lahF
 
-mkdir -p "$workdir"/Comfy3D_WinPortable
-mv  python_embeded  Comfy3D_WinPortable/python_embeded
+mkdir -p "$workdir"/Comfy3D_WinPortable/extras
+
+mv  "$workdir"/python_embeded  "$workdir"/Comfy3D_WinPortable/python_embeded
 
 # Redirect HuggingFace-Hub model folder
 export HF_HUB_CACHE="$workdir/Comfy3D_WinPortable/HuggingFaceHub"
 mkdir -p "${HF_HUB_CACHE}"
+# Redirect Pytorch Hub model folder
+export TORCH_HOME="$workdir/Comfy3D_WinPortable/TorchHome"
+mkdir -p "${TORCH_HOME}"
 
 # ComfyUI main app (latest)
 git clone https://github.com/comfyanonymous/ComfyUI.git \
@@ -59,12 +63,11 @@ cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-Impact-Subpack
 cd "$workdir"/Comfy3D_WinPortable
 ./python_embeded/python.exe -s -B ComfyUI/main.py --quick-test-for-ci --cpu
 
+################################################################################
 # Download extra models
 # u2net model needed by rembg (to avoid download at first start)
-cd "$workdir"/Comfy3D_WinPortable
-mkdir extras
 curl -sSL https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net.onnx \
-    -o ./extras/u2net.onnx
+    -o "$workdir"/Comfy3D_WinPortable/extras/u2net.onnx
 
 # RealESRGAN_x4plus needed by example workflows
 curl -sSL https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth \
@@ -81,25 +84,20 @@ rm -rf "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows/_Example_Ou
 mv "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-3D-Pack/_Example_Workflows/_Example_Inputs_Files/* \
     "$workdir"/Comfy3D_WinPortable/ComfyUI/input/
 
-# Move source files needed by user compile-install
-mv "$workdir"/Comfy3D_Pre_Builds/_Libs/*  "$workdir"/Comfy3D_WinPortable/extras/
-
-# Download more dep source
+################################################################################
+# Source files needed by user compile-install
 cd "$workdir"/Comfy3D_WinPortable/extras/
 
+mv "$workdir"/Comfy3D_Pre_Builds/_Libs/*  "$workdir"/Comfy3D_WinPortable/extras/
+
+# PyTorch3D
 curl -sSL https://github.com/facebookresearch/pytorch3d/archive/refs/heads/main.zip \
     -o temp.zip
 unzip -q temp.zip
 mv pytorch3d-main pytorch3d
 rm temp.zip
 
-# Dep source for TRELLIS
-curl -sSL https://github.com/EasternJournalist/utils3d/archive/refs/heads/main.zip \
-    -o temp.zip
-unzip -q temp.zip
-mv utils3d-main utils3d
-rm temp.zip
-
+# Differential Octree Rasterization
 $gcs https://github.com/JeffreyXiang/diffoctreerast.git
 
 # Yet another diff-gaussian-rasterization (this version is used by TRELLIS)
@@ -115,6 +113,7 @@ cp -rf "$workdir"/attachments/* \
     "$workdir"/Comfy3D_WinPortable/
 
 # Clean up
+rm -v "$workdir"/Comfy3D_WinPortable/*.log
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
 rm ./was-node-suite-comfyui/was_suite_config.json
 

@@ -5,7 +5,7 @@ echo '#' > requirements5.txt
 
 array=(
 https://github.com/comfyanonymous/ComfyUI/raw/refs/tags/v0.3.7/requirements.txt
-https://github.com/MrForExample/ComfyUI-3D-Pack/raw/0880fa8d2945b8abb990ad768e0cfe704e0d025e/requirements.txt
+https://github.com/MrForExample/ComfyUI-3D-Pack/raw/a35a737676cf3cbb23360d98032870e242dae199/requirements.txt
 https://github.com/kijai/ComfyUI-KJNodes/raw/refs/heads/main/requirements.txt
 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite/raw/refs/heads/main/requirements.txt
 https://github.com/ltdrdata/ComfyUI-Impact-Pack/raw/refs/heads/Main/requirements.txt

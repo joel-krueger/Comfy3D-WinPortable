@@ -20,14 +20,22 @@ pause
 
 @echo on
 
-@REM In order to save your time on compiling, edit this line according to your GPU arch.
+@REM ===========================================================================
+
+@REM [IMPORTANT] To save your time on compiling, edit this line according to your GPU arch.
 @REM Ref: https://github.com/ashawkey/stable-dreamfusion/issues/360#issuecomment-2292510049
 @REM Ref: https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/
+
 set TORCH_CUDA_ARCH_LIST=5.2+PTX;6.0;6.1+PTX;7.5;8.0;8.6;8.9+PTX
+
+@REM ===========================================================================
+
+set PATH=%PATH%;%~dp0\python_embeded\Scripts
 
 set CMAKE_ARGS=-DBUILD_opencv_world=ON -DWITH_CUDA=ON -DCUDA_FAST_MATH=ON -DWITH_CUBLAS=ON -DWITH_NVCUVID=ON
 
-set PATH=%PATH%;%~dp0\python_embeded\Scripts
+.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+ spconv-cu124
 
 if not exist ".\tmp_build" mkdir tmp_build
 
@@ -35,6 +43,9 @@ if not exist ".\tmp_build" mkdir tmp_build
 
 git clone --depth=1 https://github.com/MrForExample/Comfy3D_Pre_Builds.git ^
  .\tmp_build\Comfy3D_Pre_Builds
+
+git clone --depth=1 https://github.com/autonomousvision/mip-splatting.git ^
+ .\tmp_build\mip-splatting
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
  .\tmp_build\Comfy3D_Pre_Builds\_Libs\pointnet2_ops
@@ -46,7 +57,14 @@ git clone --depth=1 https://github.com/MrForExample/Comfy3D_Pre_Builds.git ^
  .\tmp_build\Comfy3D_Pre_Builds\_Libs\vox2seq
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- git+https://github.com/ashawkey/diff-gaussian-rasterization.git
+ .\tmp_build\mip-splatting\submodules\diff-gaussian-rasterization
+
+@REM Note that PIP will auto git clone submodules, no need to explicit clone it.
+.\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
+ git+https://github.com/JeffreyXiang/diffoctreerast.git
+
+.\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
+ git+https://github.com/EasternJournalist/utils3d.git
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
  git+https://github.com/ashawkey/kiuikit.git
@@ -62,5 +80,18 @@ echo Build complete, installing...
 del .\tmp_build\numpy-2*.whl
 
 for %%i in (.\tmp_build\*.whl) do .\python_embeded\python.exe -s -m pip install --force-reinstall "%%i"
+
+@REM ===========================================================================
+
+@REM (Optional) Flash Attention for TRELLIS demo
+@REM "flash-attn" can ONLY be used on Ampere and later GPUs (RTX 30 series / A100 and beyond).
+@REM WARNING: VERY long build time!
+
+@REM Limit Ninja jobs to avoid OOM. If have RAM larger than 96GB, just remove this line.
+rem set MAX_JOBS=4
+
+rem .\python_embeded\python.exe -s -m pip install flash-attn --no-build-isolation
+
+@REM ===========================================================================
 
 .\python_embeded\python.exe -s -m pip install numpy==1.26.4

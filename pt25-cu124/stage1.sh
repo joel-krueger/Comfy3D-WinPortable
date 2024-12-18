@@ -21,11 +21,11 @@ unzip -q python_embeded.zip -d "$workdir"/python_embeded
 # Download 3D-Pack
 # Note: zip archive doesn't contain the ".git" folder, it's not upgradable.
 cd "$workdir"
-curl -sSL https://github.com/MrForExample/ComfyUI-3D-Pack/archive/0880fa8d2945b8abb990ad768e0cfe704e0d025e.zip \
-    -o ComfyUI-3D-Pack-0880fa8d2945b8abb990ad768e0cfe704e0d025e.zip
-unzip -q ComfyUI-3D-Pack-0880fa8d2945b8abb990ad768e0cfe704e0d025e.zip
-mv ComfyUI-3D-Pack-0880fa8d2945b8abb990ad768e0cfe704e0d025e ComfyUI-3D-Pack
-rm ComfyUI-3D-Pack-0880fa8d2945b8abb990ad768e0cfe704e0d025e.zip
+curl -sSL https://github.com/MrForExample/ComfyUI-3D-Pack/archive/a35a737676cf3cbb23360d98032870e242dae199.zip \
+    -o ComfyUI-3D-Pack-a35a737676cf3cbb23360d98032870e242dae199.zip
+unzip -q ComfyUI-3D-Pack-a35a737676cf3cbb23360d98032870e242dae199.zip
+mv ComfyUI-3D-Pack-a35a737676cf3cbb23360d98032870e242dae199 ComfyUI-3D-Pack
+rm ComfyUI-3D-Pack-a35a737676cf3cbb23360d98032870e242dae199.zip
 
 cd "$workdir"
 curl -sSL https://github.com/MrForExample/Comfy3D_Pre_Builds/archive/ac9f238f092b94ba319ce06f3ccd80b9d0f6c8c4.zip \
@@ -65,6 +65,7 @@ $pip_exe install "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py312_t
 $pip_exe install -r "$workdir"/requirements8.txt
 $pip_exe install -r "$workdir"/requirements9.txt
 $pip_exe install -r "$workdir"/requirementsA.txt
+$pip_exe install -r "$workdir"/requirementsB.txt
 
 # Add Ninja binary (replacing PIP Ninja)
 ## The 'python_embeded\Scripts\ninja.exe' is not working,
@@ -87,8 +88,8 @@ rm aria2.zip
 
 # Setup Python embeded, part 3/3
 cd "$workdir"/python_embeded
+sed -i '1i../TRELLIS' ./python312._pth
 sed -i '1i../ComfyUI' ./python312._pth
-
 $pip_exe list
 
 cd "$workdir"

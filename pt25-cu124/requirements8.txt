@@ -1,4 +1,1 @@
-# https://pip.pypa.io/en/stable/reference/requirements-file-format/
-# https://github.com/rusty1s/pytorch_scatter?tab=readme-ov-file#binaries
---find-links https://data.pyg.org/whl/torch-2.5.1%2Bcu124.html
-torch-scatter
+https://huggingface.co/lldacing/flash-attention-windows-wheel/resolve/main/flash_attn-2.7.0.post2%2Bcu124torch2.5.1cxx11abiFALSE-cp312-cp312-win_amd64.whl
