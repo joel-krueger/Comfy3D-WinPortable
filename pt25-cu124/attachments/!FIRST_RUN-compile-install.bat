@@ -12,31 +12,48 @@ set CMAKE_ARGS=-DBUILD_opencv_world=ON -DWITH_CUDA=ON -DCUDA_FAST_MATH=ON -DWITH
 set PATH=%PATH%;%~dp0\python_embeded\Scripts
 
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
- "git+https://github.com/facebookresearch/pytorch3d.git"
+ .\extras\pytorch3d
 
 @REM Compile-install pointnet2_ops for Triplane Gaussian
 
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
  .\extras\pointnet2_ops
 
-@REM Compile-install diff-gaussian-rasterization for Triplane Gaussian
-
-.\python_embeded\python.exe -s -m pip install --force-reinstall ^
- "git+https://github.com/ashawkey/diff-gaussian-rasterization.git"
-
-@REM Compile-install simple-knn
+@REM Compile-install simple-knn for Gaussian Splatting
 
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
  .\extras\simple-knn
 
-@REM Compile-install vox2seq for TRELLIS
+@REM ===========================================================================
+@REM For TRELLIS
+@REM Note here we skipped 'utils3d'
+
+@REM vox2seq
 
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
  .\extras\vox2seq
 
-@REM Compile-install Flash Attention for TRELLIS
+@REM diff-gaussian-rasterization
+
+.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+ .\extras\diff-gaussian-rasterization
+
+@REM Differential Octree Rasterization
+@REM Note that PIP will auto git clone submodules, no need to explicit clone it.
+.\python_embeded\python.exe -s -m pip install ^
+ .\extras\diffoctreerast
+
+@REM (Optional) Flash Attention
 @REM flash-attn can ONLY be used on Ampere and later GPUs (RTX 30 series and beyond)
 @REM Safe to remove this if you are not using RTX 30/40 or A100+.
 
+@REM Limit Ninja jobs to avoid OOM
+
+set MAX_JOBS=4
+
 .\python_embeded\python.exe -s -m pip install ^
- flash-attn
+ flash-attn --no-build-isolation
+
+@REM ===========================================================================
+
+.\python_embeded\python.exe -s -m pip install numpy==1.26.4

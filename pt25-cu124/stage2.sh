@@ -4,19 +4,25 @@ set -eux
 # Chores
 gcs='git clone --depth=1 --no-tags --recurse-submodules --shallow-submodules'
 workdir=$(pwd)
-export PYTHONPYCACHEPREFIX="$workdir"/pycache
+export PYTHONPYCACHEPREFIX="${workdir}/pycache2"
 export PATH="$PATH:$workdir/Comfy3D_WinPortable/python_embeded/Scripts"
 
 ls -lahF
+
 mkdir -p "$workdir"/Comfy3D_WinPortable
+mv  python_embeded  Comfy3D_WinPortable/python_embeded
 
 # Redirect HuggingFace-Hub model folder
 export HF_HUB_CACHE="$workdir/Comfy3D_WinPortable/HuggingFaceHub"
-mkdir -p "$HF_HUB_CACHE"
+mkdir -p "${HF_HUB_CACHE}"
 
 # ComfyUI main app (latest)
 git clone https://github.com/comfyanonymous/ComfyUI.git \
     "$workdir"/Comfy3D_WinPortable/ComfyUI
+
+# TRELLIS app
+$gcs https://github.com/microsoft/TRELLIS.git \
+    "$workdir"/Comfy3D_WinPortable/TRELLIS
 
 # CUSTOM NODES
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
@@ -31,11 +37,8 @@ rm -rf ./ComfyUI-3D-Pack/_Pre_Builds
 # ComfyUI-Manager
 # This time not disable it
 $gcs https://github.com/ltdrdata/ComfyUI-Manager.git
-# mv ComfyUI-Manager ComfyUI-Manager.disabled
 
 $gcs https://github.com/AIGODLIKE/AIGODLIKE-ComfyUI-Translation.git
-# mv AIGODLIKE-ComfyUI-Translation AIGODLIKE-ComfyUI-Translation.disabled
-
 $gcs https://github.com/cubiq/ComfyUI_IPAdapter_plus.git
 $gcs https://github.com/edenartlab/eden_comfy_pipelines.git
 $gcs https://github.com/kijai/ComfyUI-KJNodes.git
@@ -45,9 +48,6 @@ $gcs https://github.com/ltdrdata/ComfyUI-Impact-Subpack.git
 $gcs https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git
 $gcs https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git
 $gcs https://github.com/WASasquatch/was-node-suite-comfyui.git
-
-cd "$workdir"
-mv  python_embeded  Comfy3D_WinPortable/python_embeded
 
 # Download models for Impact-Pack & Impact-Subpack
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-Impact-Pack
@@ -72,7 +72,6 @@ curl -sSL https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealES
 
 # Copy/Move example files of 3D-Pack
 mkdir -p "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows
-
 cp -r "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-3D-Pack/_Example_Workflows/. \
     "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows/
 
@@ -85,25 +84,31 @@ mv "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-3D-Pack/_Example_
 # Move source files needed by user compile-install
 mv "$workdir"/Comfy3D_Pre_Builds/_Libs/*  "$workdir"/Comfy3D_WinPortable/extras/
 
-# Download more source repos
+# Download more dep source
 cd "$workdir"/Comfy3D_WinPortable/extras/
 
+curl -sSL https://github.com/facebookresearch/pytorch3d/archive/refs/heads/main.zip \
+    -o temp.zip
+unzip -q temp.zip
+mv pytorch3d-main pytorch3d
+rm temp.zip
+
+# Dep source for TRELLIS
 curl -sSL https://github.com/EasternJournalist/utils3d/archive/refs/heads/main.zip \
     -o temp.zip
 unzip -q temp.zip
 mv utils3d-main utils3d
 rm temp.zip
 
+$gcs https://github.com/JeffreyXiang/diffoctreerast.git
 
-cd "$workdir"/Comfy3D_WinPortable/extras/
-
-curl -sSL https://github.com/autonomousvision/mip-splatting.git \
+# Yet another diff-gaussian-rasterization (this version is used by TRELLIS)
+curl -sSL https://github.com/autonomousvision/mip-splatting/archive/refs/heads/main.zip \
     -o temp.zip
 unzip -q temp.zip
-mv TRELLIS-main TRELLIS
+mv mip-splatting-main/submodules/diff-gaussian-rasterization ./diff-gaussian-rasterization
+rm -rf mip-splatting-main
 rm temp.zip
-
-
 
 # Copy & overwrite attachments
 cp -rf "$workdir"/attachments/* \
