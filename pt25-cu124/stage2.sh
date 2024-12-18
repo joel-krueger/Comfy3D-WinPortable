@@ -11,6 +11,8 @@ ls -lahF
 
 mkdir -p "$workdir"/Comfy3D_WinPortable/extras
 
+# This move is intentional.
+# If relocating python_embeded breaks, later test will fail fast.
 mv  "$workdir"/python_embeded  "$workdir"/Comfy3D_WinPortable/python_embeded
 
 # Redirect HuggingFace-Hub model folder
