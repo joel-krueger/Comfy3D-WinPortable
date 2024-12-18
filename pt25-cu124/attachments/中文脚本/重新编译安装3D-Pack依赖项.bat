@@ -38,6 +38,9 @@ set PATH=%PATH%;%~dp0\python_embeded\Scripts
 
 set CMAKE_ARGS=-DBUILD_opencv_world=ON -DWITH_CUDA=ON -DCUDA_FAST_MATH=ON -DWITH_CUBLAS=ON -DWITH_NVCUVID=ON
 
+.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+ spconv-cu124
+
 if not exist ".\tmp_build" mkdir tmp_build
 
 .\python_embeded\python.exe -s -m pip install numpy==1.26.4

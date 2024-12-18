@@ -61,7 +61,8 @@ fi
 
 # Download the TRELLIS model (will skip if exist)
 if [ ! -f "$workdir/python_embeded/Scripts/.hf-hub-reinstalled" ] ; then
-    $workdir/python_embeded/python.exe -s -m pip install --force-reinstall huggingface-hub
+    $workdir/python_embeded/python.exe -s -m pip install uninstall --yes huggingface-hub
+    $workdir/python_embeded/python.exe -s -m pip install huggingface-hub
     touch "$workdir/python_embeded/Scripts/.hf-hub-reinstalled"
 fi ;
 
