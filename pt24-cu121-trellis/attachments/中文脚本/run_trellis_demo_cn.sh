@@ -61,10 +61,14 @@ fi
 
 # 下载 TRELLIS 模型（不会重复下载）
 if [ ! -f "$workdir/python_embeded/Scripts/.hf-hub-reinstalled" ] ; then
-    $workdir/python_embeded/python.exe -s -m pip install uninstall --yes huggingface-hub
+    $workdir/python_embeded/python.exe -s -m pip uninstall --yes huggingface-hub
     $workdir/python_embeded/python.exe -s -m pip install huggingface-hub
     touch "$workdir/python_embeded/Scripts/.hf-hub-reinstalled"
 fi ;
+
+echo "########################################"
+echo "[INFO] Checking TRELLIS model..."
+echo "########################################"
 
 $workdir/python_embeded/Scripts/huggingface-cli.exe download JeffreyXiang/TRELLIS-image-large
 
