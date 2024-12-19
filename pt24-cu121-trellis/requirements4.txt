@@ -1,6 +1,5 @@
 accelerate
 aiohttp
-diffusers
 einops
 fairscale
 ftfy

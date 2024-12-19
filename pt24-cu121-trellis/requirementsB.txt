@@ -7,6 +7,14 @@ numpy==1.26.4
 # Here I just choose not install it. It's a client for Matrix.org.
 #matrix-client==0.4.0
 
+# Fix for CRM V1
+open-clip-torch==2.24.0
+
+# Forcing version to prevent PIP re-installing
+clip-interrogator==0.6.0
+diffusers==0.29.1
+torchvision==0.19.0
+
 # For TRELLIS demo
 gradio==4.44.1
 gradio_litmodel3d==0.0.1
