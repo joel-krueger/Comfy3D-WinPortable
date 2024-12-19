@@ -11,6 +11,7 @@ numpy==1.26.4
 open-clip-torch==2.24.0
 
 # Forcing version to prevent PIP re-installing
+ultralytics==8.2.70
 clip-interrogator==0.6.0
 diffusers==0.29.1
 torchvision==0.19.0

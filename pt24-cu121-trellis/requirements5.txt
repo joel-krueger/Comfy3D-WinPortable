@@ -39,6 +39,5 @@ torchtyping
 trimesh
 typer
 typing-extensions
-ultralytics
 webcolors
 xatlas
