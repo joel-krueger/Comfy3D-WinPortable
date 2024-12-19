@@ -1,4 +1,4 @@
-name: "Build & Upload pt25-cu121 Package"
+name: "Build & Upload pt24-cu121-trellis Package"
 
 on:
   workflow_dispatch:
@@ -15,17 +15,17 @@ jobs:
 
         - name: Stage 1 Gathering Dependencies
           shell: bash
-          working-directory: pt25-cu121
+          working-directory: pt24-cu121-trellis
           run: bash stage1.sh
 
         - name: Stage 2 Assembling Repositories
           shell: bash
-          working-directory: pt25-cu121
+          working-directory: pt24-cu121-trellis
           run: bash stage2.sh
 
         - name: Stage 3 Compressing Package
           shell: bash
-          working-directory: pt25-cu121
+          working-directory: pt24-cu121-trellis
           run: bash stage3.sh
 
         - name: Upload archive to release
@@ -34,7 +34,7 @@ jobs:
             # You don't need to configure this token. It'll be auto-set when GitHub Actions start.
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           with:
-            file: "pt25-cu121/Comfy3D_WinPortable.7z*"
+            file: "pt24-cu121-trellis/Comfy3D_WinPortable.7z*"
             # Always draft before release.
             draft: true
             overwrite: true

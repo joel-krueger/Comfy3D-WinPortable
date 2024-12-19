@@ -59,8 +59,7 @@ $pip_exe install -r "$workdir"/requirements4.txt
 $pip_exe install -r "$workdir"/requirements5.txt
 $pip_exe install -r "$workdir"/requirements6.txt
 
-rm "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py312_torch2.5.0_cu121/torch_scatter-2.1.2-cp312-cp312-win_amd64.whl
-$pip_exe install "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py312_torch2.5.0_cu121/*.whl
+$pip_exe install "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py312_torch2.4.0_cu121/*.whl
 
 $pip_exe install -r "$workdir"/requirements8.txt
 $pip_exe install -r "$workdir"/requirements9.txt
