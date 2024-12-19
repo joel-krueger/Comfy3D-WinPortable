@@ -28,7 +28,7 @@ scipy
 sentencepiece
 soundfile
 spandrel
-spconv-cu124
+spconv-cu121
 timm
 tokenizers
 torchmetrics
