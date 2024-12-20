@@ -9,6 +9,8 @@ set -eu
 # 务必根据你的 GPU 型号配置！
 export TORCH_CUDA_ARCH_LIST="6.1+PTX"
 
+export CUDA_HOME="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.1"
+
 ################################################################################
 # 性能优化（可选）
 
@@ -46,7 +48,7 @@ export HF_HUB_CACHE="$workdir/HuggingFaceHub"
 export TORCH_HOME="$workdir/TorchHome"
 
 # 该命令配置 PATH 环境变量。
-export PATH="${PATH}:$workdir/python_embeded/Scripts"
+export PATH="${PATH}:$workdir/python_embeded/Scripts:${CUDA_HOME}/bin"
 
 # 该环境变量使 .pyc 缓存文件集中保存在一个文件夹下，而不是随 .py 文件分布。
 export PYTHONPYCACHEPREFIX="$workdir/pycache"

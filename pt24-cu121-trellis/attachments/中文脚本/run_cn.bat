@@ -1,6 +1,8 @@
 @REM 务必根据你的 GPU 型号配置！
 set TORCH_CUDA_ARCH_LIST=6.1+PTX
 
+set CUDA_HOME=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.1
+
 @REM 如需配置代理，取消注释（移除行首的 'rem '）并编辑下两行环境变量。
 rem set HTTP_PROXY=http://localhost:1081
 rem set HTTPS_PROXY=http://localhost:1081

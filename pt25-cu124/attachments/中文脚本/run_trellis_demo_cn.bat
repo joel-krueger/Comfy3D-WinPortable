@@ -4,6 +4,16 @@ set TORCH_CUDA_ARCH_LIST=6.1+PTX
 @REM 如将 CUDA Toolkit 安装到其他路径，注意修改
 set CUDA_HOME=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4
 
+@REM 性能优化 1
+@REM "native" 启动更快
+@REM "auto" 性能更好，但一开始要跑性能测试
+set SPCONV_ALGO=native
+
+@REM 性能优化 2
+@REM "xformers" 兼容性更好
+@REM "flash-attn" 性能更好 (需要 RTX 30/A100 或更新的 GPU)
+set ATTN_BACKEND=xformers
+
 @REM 如需配置代理，取消注释（移除行首的 'rem '）并编辑下两行环境变量。
 rem set HTTP_PROXY=http://localhost:1081
 rem set HTTPS_PROXY=http://localhost:1081
@@ -37,18 +47,10 @@ set PATH=%PATH%;%CUDA_HOME%\bin
 @REM 该环境变量使 .pyc 缓存文件集中保存在一个文件夹下，而不是随 .py 文件分布。
 set PYTHONPYCACHEPREFIX=%~dp0\pycache
 
-@REM 该命令会复制 u2net.onnx 到用户主目录下，以免启动时还需下载。
-IF NOT EXIST "%USERPROFILE%\.u2net\u2net.onnx" (
-    IF EXIST ".\extras\u2net.onnx" (
-        mkdir "%USERPROFILE%\.u2net" 2>nul
-        copy ".\extras\u2net.onnx" "%USERPROFILE%\.u2net\u2net.onnx"
-    )
-)
-
 @REM ===========================================================================
 
-@REM 如不希望 ComfyUI 启动后自动打开浏览器，添加 --disable-auto-launch 到下行末尾（注意空格）。
-@REM 如在用 40 系显卡，可添加 --fast 开启实验性高性能模式。
-.\python_embeded\python.exe -s ComfyUI\main.py --windows-standalone-build
+@REM 启动 TRELLIS demo
+cd TRELLIS
+..\python_embeded\python.exe -s app.py
 
 pause

@@ -90,7 +90,14 @@ mv "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-3D-Pack/_Example_
 # Source files needed by user compile-install
 cd "$workdir"/Comfy3D_WinPortable/extras/
 
-mv "$workdir"/Comfy3D_Pre_Builds/_Libs/*  "$workdir"/Comfy3D_WinPortable/extras/
+mv "$workdir"/Comfy3D_Pre_Builds/_Libs/pointnet2_ops \
+    "$workdir"/Comfy3D_WinPortable/extras/pointnet2_ops
+
+mv "$workdir"/Comfy3D_Pre_Builds/_Libs/simple-knn \
+    "$workdir"/Comfy3D_WinPortable/extras/simple-knn
+
+cp -r "$workdir"/Comfy3D_WinPortable/TRELLIS/extensions/vox2seq \
+    "$workdir"/Comfy3D_WinPortable/extras/vox2seq
 
 # PyTorch3D
 curl -sSL https://github.com/facebookresearch/pytorch3d/archive/refs/heads/main.zip \

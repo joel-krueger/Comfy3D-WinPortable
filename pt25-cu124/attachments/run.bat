@@ -1,6 +1,9 @@
 @REM Edit this first! According to your GPU model.
 set TORCH_CUDA_ARCH_LIST=6.1+PTX
 
+@REM Set the correct path for CUDA Toolkit if you install it elsewhere.
+set CUDA_HOME=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4
+
 @REM To set proxy, edit and uncomment the two lines below (remove 'rem ' in the beginning of line).
 rem set HTTP_PROXY=http://localhost:1081
 rem set HTTPS_PROXY=http://localhost:1081
@@ -17,6 +20,8 @@ rem set HF_TOKEN=
 @REM https://huggingface.co/docs/huggingface_hub/hf_transfer
 rem set HF_HUB_ENABLE_HF_TRANSFER=1
 
+@REM ===========================================================================
+
 @REM This command redirects HuggingFace-Hub to download model files in this folder.
 set HF_HUB_CACHE=%~dp0\HuggingFaceHub
 
@@ -25,6 +30,7 @@ set TORCH_HOME=%~dp0\TorchHome
 
 @REM This command will set PATH environment variable.
 set PATH=%PATH%;%~dp0\python_embeded\Scripts
+set PATH=%PATH%;%CUDA_HOME%\bin
 
 @REM This command will let the .pyc files to be stored in one place.
 set PYTHONPYCACHEPREFIX=%~dp0\pycache
@@ -36,6 +42,8 @@ IF NOT EXIST "%USERPROFILE%\.u2net\u2net.onnx" (
         copy ".\extras\u2net.onnx" "%USERPROFILE%\.u2net\u2net.onnx"
     )
 )
+
+@REM ===========================================================================
 
 @REM If you don't want the browser to open automatically, add " --disable-auto-launch" (without quotation marks) to the end of the line below.
 .\python_embeded\python.exe -s ComfyUI\main.py --windows-standalone-build
