@@ -9,6 +9,9 @@ A semi-portable package dedicated for running
 https://github.com/MrForExample/ComfyUI-3D-Pack[ComfyUI-3D-Pack]
 on Windows.
 
+* NEW: A 
+https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r4-pt25[special release]
+for TRELLIS.
 
 ## What Can It Do?
 
@@ -141,7 +144,7 @@ Few things I want to mention first, that may save you A LOT of time...
 https://github.com/YanWenKun/StableFast3D-WinPortable[StableFast3D-WinPortable].
 It does only one thing and does it well.
 
-2. Everything in Comfy3D works more smoothly on Linux, as well as WSL2. Most 3D workflows are research-oriented and far from production-ready. By installing & running them you're essentially replicating the development environment used by researchers. Many components need to be compiled before running, and this is exactly where Linux excels.
+2. Everything in Comfy3D works more smoothly on Linux. Most 3D workflows are research-oriented and far from production-ready. By installing & running them you're essentially replicating the development environment used by researchers. Many components need to be compiled before running, and this is exactly where Linux excels.
 Check out
 https://github.com/MrForExample/ComfyUI-3D-Pack/blob/main/Dockerfile[Dockerfile]
 or my

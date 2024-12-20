@@ -9,6 +9,13 @@ image::screenshots-pt24/CharacterGen_Vanilla.webp["Screenshot"]
 https://github.com/MrForExample/ComfyUI-3D-Pack[ComfyUI-3D-Pack]
 的整合包。
 
+* 新：
+用于
+https://github.com/microsoft/TRELLIS[TRELLIS]
+的
+https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r4-pt25[特别版]
+现已发布
+
 ## 背景
 
 “通过图片生成 3D 模型”是一项热门研究领域，且有众多开源项目，
@@ -173,7 +180,7 @@ https://github.com/Stability-AI/stable-fast-3d[Stable Fast 3D]
 https://github.com/YanWenKun/StableFast3D-WinPortable[StableFast3D-WinPortable]
 ，它只做这一件事。
 
-* 如果需要运行上述不兼容的工作流，可尝试在 Linux / WSL2 下运行。
+* 如果需要运行上述不兼容的工作流，可尝试在 Linux 下运行。
 Linux 下通过 GCC 生态编译 CUDA 核函数要顺畅得多，甚至可移植性也更好。
 可以参考 3D-Pack 提供的
 https://github.com/MrForExample/ComfyUI-3D-Pack/blob/main/Dockerfile[Dockerfile]
