@@ -9,6 +9,8 @@ set -eu
 # Edit this first! According to your GPU model.
 export TORCH_CUDA_ARCH_LIST="6.1+PTX"
 
+export CUDA_HOME="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4"
+
 ################################################################################
 # Optional Optimizations
 
@@ -46,7 +48,7 @@ export HF_HUB_CACHE="$workdir/HuggingFaceHub"
 export TORCH_HOME="$workdir/TorchHome"
 
 # This command will set PATH environment variable.
-export PATH="${PATH}:$workdir/python_embeded/Scripts"
+export PATH="${PATH}:$workdir/python_embeded/Scripts:${CUDA_HOME}/bin"
 
 # This command will let the .pyc files to be stored in one place.
 export PYTHONPYCACHEPREFIX="$workdir/pycache"
