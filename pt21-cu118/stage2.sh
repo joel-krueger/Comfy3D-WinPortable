@@ -18,7 +18,7 @@ mkdir -p "$HF_HUB_CACHE"
 git clone https://github.com/comfyanonymous/ComfyUI.git \
     "$workdir"/Comfy3D_WinPortable/ComfyUI
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI
-git reset --hard "v0.3.7"
+git reset --hard "v0.3.8"
 
 # CUSTOM NODES
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
