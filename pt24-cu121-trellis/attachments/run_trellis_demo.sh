@@ -1,7 +1,9 @@
 #!/bin/bash
 set -eu
 
-# The TRELLIS demo was written with Linux context in mind. So here we use bash to run it.
+# This script is equivalent to `run_trellis_demo.bat`.
+# I made it archived here as a backup.
+
 # You need to install <Git for Windows> with <Git Bash> (installed by default).
 # Download: https://git-scm.com/download/win
 

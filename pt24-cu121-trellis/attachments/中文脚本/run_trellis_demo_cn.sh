@@ -1,9 +1,13 @@
 #!/bin/bash
 set -eu
 
-# 因为 TRELLIS 官方 demo 是以 Linux 语境编写的，未考虑跨平台，这里需用 Bash 运行
-# 下载 Git for Windows: https://git-scm.com/download/win
+# 该脚本与 `run_trellis_demo_cn.bat` 功能相同。
+# 该脚本是在开发阶段为兼容 Linux 上下文而写（TRELLIS 官方说仅在 Linux 上测试），
+# 后经测试发现 bat 脚本也可正常运行，没必要麻烦用户，故将该脚本存档于此。
+
+# 运行该脚本需安装 Git for Windows: https://git-scm.com/download/win
 # 并在安装时选择 Git Bash（默认）
+# 之后使用 Bash 运行
 
 ################################################################################
 # 务必根据你的 GPU 型号配置！
