@@ -44,6 +44,9 @@ rm -rf ./ComfyUI-3D-Pack/_Pre_Builds
 # This time not disable it
 $gcs https://github.com/ltdrdata/ComfyUI-Manager.git
 
+# SF3D
+$gcs https://github.com/Stability-AI/stable-fast-3d.git
+
 $gcs https://github.com/AIGODLIKE/AIGODLIKE-ComfyUI-Translation.git
 $gcs https://github.com/cubiq/ComfyUI_IPAdapter_plus.git
 $gcs https://github.com/edenartlab/eden_comfy_pipelines.git
@@ -84,6 +87,10 @@ rm -rf "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows/_Example_In
 rm -rf "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows/_Example_Outputs
 
 mv "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-3D-Pack/_Example_Workflows/_Example_Inputs_Files/* \
+    "$workdir"/Comfy3D_WinPortable/ComfyUI/input/
+
+# Example input files of SF3D
+cp -r "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/stable-fast-3d/demo_files/examples/. \
     "$workdir"/Comfy3D_WinPortable/ComfyUI/input/
 
 ################################################################################

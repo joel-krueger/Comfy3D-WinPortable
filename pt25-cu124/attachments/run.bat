@@ -1,6 +1,10 @@
 @REM Edit this first! According to your GPU model.
 set TORCH_CUDA_ARCH_LIST=6.1+PTX
 
+@REM To set HuggingFace Access Token, uncomment and edit the line below.
+@REM https://huggingface.co/settings/tokens
+rem set HF_TOKEN=
+
 @REM Set the correct path for CUDA Toolkit if you install it elsewhere.
 set CUDA_HOME=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4
 
@@ -11,10 +15,6 @@ rem set HTTPS_PROXY=http://localhost:1081
 @REM To set mirror site for PIP & HuggingFace Hub, uncomment and edit the two lines below.
 rem set PIP_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 rem set HF_ENDPOINT=https://hf-mirror.com
-
-@REM To set HuggingFace Access Token, uncomment and edit the line below.
-@REM https://huggingface.co/settings/tokens
-rem set HF_TOKEN=
 
 @REM To enable HuggingFace Hub's experimental high-speed file transfer, uncomment the line below.
 @REM https://huggingface.co/docs/huggingface_hub/hf_transfer

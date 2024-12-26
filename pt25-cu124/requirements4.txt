@@ -4,14 +4,17 @@ diffusers
 einops
 fairscale
 ftfy
+gpytoolbox
 huggingface-hub[hf-transfer]
 imageio
+jaxtyping
 joblib
 kornia
 matplotlib
 omegaconf
 onnx
 onnxruntime-gpu
+open-clip-torch
 opencv-contrib-python-headless
 pandas
 pilgram
@@ -21,6 +24,7 @@ pygit2
 python-ffmpeg
 pyyaml
 regex
+rembg[gpu]
 safetensors
 scikit-image
 scikit-learn
@@ -35,3 +39,4 @@ torchmetrics
 torchsde
 tqdm
 transformers
+trimesh
