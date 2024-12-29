@@ -45,11 +45,8 @@ if not exist ".\tmp_build" mkdir tmp_build
 
 .\python_embeded\python.exe -s -m pip install numpy==1.26.4
 
-git clone --depth=1 https://ghp.ci/https://github.com/MrForExample/Comfy3D_Pre_Builds.git ^
+git clone --depth=1 https://gh-proxy.com/https://github.com/MrForExample/Comfy3D_Pre_Builds.git ^
  .\tmp_build\Comfy3D_Pre_Builds
-
-git clone --depth=1 https://ghp.ci/https://github.com/autonomousvision/mip-splatting.git ^
- .\tmp_build\mip-splatting
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
  .\tmp_build\Comfy3D_Pre_Builds\_Libs\pointnet2_ops
@@ -60,24 +57,24 @@ git clone --depth=1 https://ghp.ci/https://github.com/autonomousvision/mip-splat
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
  .\tmp_build\Comfy3D_Pre_Builds\_Libs\vox2seq
 
-.\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- .\tmp_build\mip-splatting\submodules\diff-gaussian-rasterization
-
 @REM PIP 会自动 git clone --recurse-submodules ，无需手动克隆
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- git+https://ghp.ci/https://github.com/JeffreyXiang/diffoctreerast.git
+ git+https://gh-proxy.com/https://github.com/ashawkey/diff-gaussian-rasterization.git
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- git+https://ghp.ci/https://github.com/EasternJournalist/utils3d.git
+ git+https://gh-proxy.com/https://github.com/JeffreyXiang/diffoctreerast.git
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- git+https://ghp.ci/https://github.com/ashawkey/kiuikit.git
+ git+https://gh-proxy.com/https://github.com/EasternJournalist/utils3d.git
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- git+https://ghp.ci/https://github.com/NVlabs/nvdiffrast.git
+ git+https://gh-proxy.com/https://github.com/ashawkey/kiuikit.git
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- "git+https://ghp.ci/https://github.com/facebookresearch/pytorch3d.git"
+ git+https://gh-proxy.com/https://github.com/NVlabs/nvdiffrast.git
+
+.\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
+ "git+https://gh-proxy.com/https://github.com/facebookresearch/pytorch3d.git"
 
 echo "编译完成，开始安装……"
 
@@ -87,7 +84,7 @@ for %%i in (.\tmp_build\*.whl) do .\python_embeded\python.exe -s -m pip install 
 
 @REM ===========================================================================
 
-@REM (可选,默认关闭) Flash Attention, 用于 TRELLIS demo 等
+@REM (可选,默认关闭) Flash Attention, 用于 TRELLIS, 混元3D-1 等
 @REM "flash-attn" 只能用于 Ampere (RTX 30 系 / A100) 及更新的 GPU。
 @REM 注意：编译耗时很长！
 

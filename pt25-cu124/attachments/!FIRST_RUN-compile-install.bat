@@ -25,6 +25,11 @@ set PATH=%PATH%;%~dp0\python_embeded\Scripts
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
  .\extras\simple-knn
 
+@REM Differential Gaussian Rasterization
+
+.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+ .\extras\diff-gaussian-rasterization
+
 @REM ===========================================================================
 @REM For TRELLIS
 @REM Note here we skipped 'utils3d'
@@ -33,11 +38,6 @@ set PATH=%PATH%;%~dp0\python_embeded\Scripts
 
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
  .\extras\vox2seq
-
-@REM diff-gaussian-rasterization
-
-.\python_embeded\python.exe -s -m pip install --force-reinstall ^
- .\extras\diff-gaussian-rasterization
 
 @REM Differential Octree Rasterization
 

@@ -88,7 +88,6 @@ rm aria2.zip
 
 # Setup Python embeded, part 3/3
 cd "$workdir"/python_embeded
-sed -i '1i../TRELLIS' ./python312._pth
 sed -i '1i../ComfyUI' ./python312._pth
 $pip_exe list
 

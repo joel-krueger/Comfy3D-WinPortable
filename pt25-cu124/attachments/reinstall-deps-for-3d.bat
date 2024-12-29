@@ -44,9 +44,6 @@ if not exist ".\tmp_build" mkdir tmp_build
 git clone --depth=1 https://github.com/MrForExample/Comfy3D_Pre_Builds.git ^
  .\tmp_build\Comfy3D_Pre_Builds
 
-git clone --depth=1 https://github.com/autonomousvision/mip-splatting.git ^
- .\tmp_build\mip-splatting
-
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
  .\tmp_build\Comfy3D_Pre_Builds\_Libs\pointnet2_ops
 
@@ -56,10 +53,10 @@ git clone --depth=1 https://github.com/autonomousvision/mip-splatting.git ^
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
  .\tmp_build\Comfy3D_Pre_Builds\_Libs\vox2seq
 
-.\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- .\tmp_build\mip-splatting\submodules\diff-gaussian-rasterization
-
 @REM Note that PIP will auto git clone submodules, no need to explicit clone it.
+.\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
+ git+https://github.com/ashawkey/diff-gaussian-rasterization.git
+
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
  git+https://github.com/JeffreyXiang/diffoctreerast.git
 
@@ -83,7 +80,7 @@ for %%i in (.\tmp_build\*.whl) do .\python_embeded\python.exe -s -m pip install 
 
 @REM ===========================================================================
 
-@REM (Optional) Flash Attention for TRELLIS demo
+@REM (Optional) Flash Attention for TRELLIS, Hunyuan3D-1
 @REM "flash-attn" can ONLY be used on Ampere and later GPUs (RTX 30 series / A100 and beyond).
 @REM WARNING: VERY long build time!
 

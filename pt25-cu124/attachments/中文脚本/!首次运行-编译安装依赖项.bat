@@ -22,11 +22,15 @@ set CMAKE_ARGS=-DBUILD_opencv_world=ON -DWITH_CUDA=ON -DCUDA_FAST_MATH=ON -DWITH
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
  .\extras\pointnet2_ops
 
-
 @REM 编译安装 simple-knn ，该组件用于 Gaussian Splatting
 
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
  .\extras\simple-knn
+
+@REM Differential Gaussian Rasterization
+
+.\python_embeded\python.exe -s -m pip install --force-reinstall ^
+ .\extras\diff-gaussian-rasterization
 
 @REM ===========================================================================
 @REM 用于 TRELLIS 的组件
@@ -36,11 +40,6 @@ set CMAKE_ARGS=-DBUILD_opencv_world=ON -DWITH_CUDA=ON -DCUDA_FAST_MATH=ON -DWITH
 
 .\python_embeded\python.exe -s -m pip install --force-reinstall ^
  .\extras\vox2seq
-
-@REM diff-gaussian-rasterization
-
-.\python_embeded\python.exe -s -m pip install --force-reinstall ^
- .\extras\diff-gaussian-rasterization
 
 @REM Differential Octree Rasterization
 
