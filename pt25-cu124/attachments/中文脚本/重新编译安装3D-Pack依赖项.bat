@@ -65,7 +65,7 @@ git clone --depth=1 https://gh-proxy.com/https://github.com/MrForExample/Comfy3D
  git+https://gh-proxy.com/https://github.com/JeffreyXiang/diffoctreerast.git
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- git+https://gh-proxy.com/https://github.com/EasternJournalist/utils3d.git
+ git+https://gh-proxy.com/https://github.com/EasternJournalist/utils3d.git#egg=utils3d
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
  git+https://gh-proxy.com/https://github.com/ashawkey/kiuikit.git

@@ -61,7 +61,7 @@ git clone --depth=1 https://github.com/MrForExample/Comfy3D_Pre_Builds.git ^
  git+https://github.com/JeffreyXiang/diffoctreerast.git
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- git+https://github.com/EasternJournalist/utils3d.git
+ git+https://github.com/EasternJournalist/utils3d.git#egg=utils3d
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
  git+https://github.com/ashawkey/kiuikit.git

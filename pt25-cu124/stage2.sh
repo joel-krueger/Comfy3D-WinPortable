@@ -57,25 +57,25 @@ $gcs https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git
 $gcs https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git
 $gcs https://github.com/WASasquatch/was-node-suite-comfyui.git
 
+# Download RealESRGAN_x4plus needed by example workflows
+curl -sSL https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth \
+    -o "$workdir"/Comfy3D_WinPortable/ComfyUI/models/upscale_models/RealESRGAN_x4plus.pth
+
 # Download models for Impact-Pack & Impact-Subpack
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-Impact-Pack
 "$workdir"/Comfy3D_WinPortable/python_embeded/python.exe -s -B install.py
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-Impact-Subpack
 "$workdir"/Comfy3D_WinPortable/python_embeded/python.exe -s -B install.py
 
+################################################################################
 # Run the test (CPU only), also let custom nodes download some models
 cd "$workdir"/Comfy3D_WinPortable
 ./python_embeded/python.exe -s -B ComfyUI/main.py --quick-test-for-ci --cpu
 
 ################################################################################
-# Download extra models
-# u2net model needed by rembg (to avoid download at first start)
+# Download u2net model needed by rembg (to avoid download at first start)
 curl -sSL https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net.onnx \
     -o "$workdir"/Comfy3D_WinPortable/extras/u2net.onnx
-
-# RealESRGAN_x4plus needed by example workflows
-curl -sSL https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth \
-    -o "$workdir"/Comfy3D_WinPortable/ComfyUI/models/upscale_models/RealESRGAN_x4plus.pth
 
 # Copy/Move example files of 3D-Pack
 mkdir -p "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/workflows
