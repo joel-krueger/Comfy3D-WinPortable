@@ -276,7 +276,7 @@ To start the program in the future, simply run `run.bat`.
 
 ## Troubleshooting
 
-### Force-Update
+### A. Force-Update
 
 It is not recommended to update any component of this package, whether it's Python, ComfyUI or Custom Nodes
 ("If it works, don't fix it").
@@ -291,7 +291,7 @@ This script will force git-pull all the repositories.
 
 Note that `ComfyUI\custom_nodes\ComfyUI-3D-Pack` folder is not a git repository, so it won't be affected by this script.
 
-### Re-Compile and Re-Install Dependencies
+### B. Re-Compile and Re-Install Dependencies
 
 Just like the FIRST_RUN script did,
 the `reinstall-deps-for-3d.bat` script will attempt to compile and install the dependencies of 3D-Pack.
@@ -306,7 +306,7 @@ There are few differences from the FIRST_RUN, this script will:
 
 ** Keep temporary files and save artifacts (.whl files) in the working folder `tmp_build`, allowing you to reuse them. Keep in mind they are not essentially portable.
 
-### Last and Guaranteed - Linux
+### C. Last and Guaranteed - Linux
 
 If you run into complicated compatibility issues, try Linux.
 
@@ -344,5 +344,5 @@ you can delete `diffusers==0.29.1` in `requirementsB.txt`.
 * If you never use CRM,
 you can delete `open-clip-torch==2.24.0` in `requirementsB.txt`.
 
-* If you are using Ampere of later GPUs, 
+* If you are using Ampere or later GPUs, 
 you can enable Flash Attention in `requirements8.txt`.
