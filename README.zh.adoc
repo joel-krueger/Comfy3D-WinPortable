@@ -1,6 +1,6 @@
 # Comfy3D Windows 整合包
 
-image::screenshots-pt24/CharacterGen_Vanilla.webp["Screenshot"]
+image::screenshots-pt25/CRM_MV_Unique3D.webp["Screenshot"]
 
 [.text-center]
 中文 | *link:README.adoc[English]*
@@ -9,12 +9,6 @@ image::screenshots-pt24/CharacterGen_Vanilla.webp["Screenshot"]
 https://github.com/MrForExample/ComfyUI-3D-Pack[ComfyUI-3D-Pack]
 的整合包。
 
-* 新：
-用于
-https://github.com/microsoft/TRELLIS[TRELLIS]
-的
-https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r4-pt25[特别版]
-现已发布
 
 ## 背景
 
@@ -49,53 +43,72 @@ https://github.com/YanWenKun/ComfyUI-Windows-Portable[ComfyUI-Windows-Portable]
 
 ## 兼容列表
 
-当前整合包 `pt24-cu121` 基于 PyTorch 2.4.0 和 CUDA 12.1，
+当前整合包 `pt25-cu124` 基于 PyTorch 2.5.1 和 CUDA 12.4，
 针对
-https://github.com/MrForExample/ComfyUI-3D-Pack/tree/bdc5e3029ed96d9fa25e651e12fce1553a4422c4[2024/10/18]
-版本的 ComfyUI-3D-Pack 构建，
-“太新”或“太旧”的工作流均不做支持。
+https://github.com/MrForExample/ComfyUI-3D-Pack/tree/a35a737676cf3cbb23360d98032870e242dae199[2024/12/18]
+版本的 ComfyUI-3D-Pack 构建。
 
-我在一块古老的 TITAN Xp (12GB VRAM) 上测试了所有样例工作流，结果如下：
+我在一块古老的 TITAN Xp (12GB VRAM) 上测试了所有样例工作流，结果如下表：
 
 
 [%autowidth,cols=4]
 |===
 |工作流|结果|截图|备注
 
+|Trellis_Image_to_Mesh
+|🆗
+|link:screenshots-pt25/TRELLIS.webp[🖼️]
+|（新）默认使用 xFormers 以保证兼容性，若想改用 Flash Attention 需定制（见文尾）
+
+|Hunyuan3D_V1
+|🆗
+|link:screenshots-pt25/Hunyuan3Dv1.webp[🖼️]
+|（新）默认使用 xFormers 以保证兼容性，若想改用 Flash Attention 需定制（见文尾）
+
+|StableFast3D/sf3d_by_stability_ai
+|🆗
+|link:screenshots-pt25/SF3D_SAI.webp[🖼️]
+|（新）工作流来自 https://github.com/Stability-AI/stable-fast-3d[Stability AI]
+
+|StableFast3D_to_Mesh
+|🆗
+|link:screenshots-pt25/SF3D.webp[🖼️]
+|工作流来自 3D-Pack
+
 |CharacterGen_Vanilla
 |🆗
-|link:screenshots-pt24/CharacterGen_Vanilla.webp[🖼️]
-|
+|link:screenshots-pt25/CharacterGen_Vanilla.webp[🖼️]
+|为了兼容 CharacterGen Loader 而使用了旧版 `diffusers`。未来考虑移除支持，以免影响新模型的使用。
 
 |CharacterGen_to_Unique3D
 |🆗
-|link:screenshots-pt24/CharacterGen_to_Unique3D.webp[🖼️]
-|
+|link:screenshots-pt25/CharacterGen_Unique3D.webp[🖼️]
+|可运行，但生成 Mesh 残缺，原因不明
 
 |CharacterGen_InstantMesh
 |❓
 |
-|在节点 "InstantMesh Reconstruction Model" 内存溢出
+|CharacterGen: 🆗; InstantMesh: OOM
 
 |CRM MVDiffusion_to_Craftsman
 |🆗
-|link:screenshots-pt24/CRM_MVDiffusion_to_Craftsman.webp[🖼️]
-|
+|link:screenshots-pt25/CRM_MV_Craftsman.webp[🖼️]
+|为了兼容 CRM Loader 而使用了旧版 `open-clip-torch`，对其他模型暂无影响。
 
 |CRM MVDiffusion_to_Unique3D
 |🆗
-|link:screenshots-pt24/CRM_MVDiffusion_to_Unique3D.webp[🖼️]
+|link:screenshots-pt25/CRM_MV_Unique3D.webp[🖼️]
 |
 
 |CRM_Img_to_Multi-views_to_CCMs_to_Mesh
 |🆗
-|link:screenshots-pt24/CRM_Img_to_Multi-views_to_CCMs_to_Mesh.webp[🖼️]
+|link:screenshots-pt25/CRM_MV_CCM.webp[🖼️]
 |
 
 |CRM MVDiffusion_to_InstantMesh
 |❌
 |
-|PyTorch 版本不兼容
+|InstantMesh 节点不匹配，可能不兼容
 
 |CRM_T2I_V2 +
 CRM_T2I_V3
@@ -105,82 +118,73 @@ CRM_T2I_V3
 
 |Unique3D_All_Stages
 |🆗
-|link:screenshots-pt24/Unique3D_All_Stages.webp[🖼️]
+|link:screenshots-pt25/Unique3D_All.webp[🖼️]
 |该工作流已包含 Unique3D 0~3 步骤，此处省略
 
 |Unique3D_with_Era3D_All
-|❌
-|
-|PyTorch 版本不兼容
+|🆗
+|link:screenshots-pt25/Unique3D_Era3D.webp[🖼️]
+|上一版整合包不兼容，新版改进
 
 |[FlexiCubes] Multi-View Depth plus Optional Normal maps to 3D Mesh
 |🆗
-|link:screenshots-pt24/FlexiCubes.webp[🖼️]
+|link:screenshots-pt25/FlexiCubes.webp[🖼️]
 |
 
 |Era3D_to_InstantMesh
-|❌
-|
-|PyTorch 版本不兼容
+|❓
+|link:screenshots-pt25/Era3D_InstantMesh.webp[🖼️]
+|Era3D: 🆗; InstantMesh: OOM 或出方块
 
 |Multi-View-Images_to_Instant-NGP_to_ DiffRast_to_3DMesh
-|❌
-|
-|"Instant NGP" 节点报错 ('NoneType' object has no attribute 'ray_aabb_intersect')
+|🆗
+|link:screenshots-pt25/MV_InstantNGP_DiffRast.webp[🖼️]
+|上一版整合包不兼容，新版改进
 
 |MVDream_to_Large_Multiview_Gaussian_ Model_to_3DGS and_3DMesh
-|❌
-|
-|"Convert 3DGS to Mesh with NeRF and Marching Cubes" 节点报错 ('NoneType' object has no attribute 'ray_aabb_intersect')
+|🆗
+|link:screenshots-pt25/MVDream_LGM.webp[🖼️]
+|上一版整合包不兼容，新版改进
 
 |Render_Mesh_and_3DGS_Example
 |🆗
-|link:screenshots-pt24/Render_Mesh_and_3DGS_Example.webp[🖼️]
+|link:screenshots-pt25/Render_Example.webp[🖼️]
 |
-
-|StableFast3D_to_Mesh
-|🆗
-|link:screenshots-pt24/StableFast3D_to_Mesh.webp[🖼️]
-|见“额外建议”
 
 |Triplane_Gaussian_Transformers_to_ 3DGS_and_3DMesh
-|❌
-|
-|"Convert 3DGS to Mesh with NeRF and Marching Cubes" 节点报错 ('NoneType' object has no attribute 'ray_aabb_intersect')
+|🆗
+|link:screenshots-pt25/Triplane_Gaussian.webp[🖼️]
+|上一版整合包不兼容，新版改进
 
 |TripoSR_to_Mesh
 |🆗
-|link:screenshots-pt24/TripoSR_to_Mesh.webp[🖼️]
+|link:screenshots-pt25/TripoSR.webp[🖼️]
 |最易运行的模型
 
 |Using_Stack_Orbit_Camera_Poses_
 to_conditioning_StableZero123
 |🆗
-|link:screenshots-pt24/Orbit_Camera.webp[🖼️]
+|link:screenshots-pt25/OrbitCamera_StableZero123.webp[🖼️]
 |
 
 |Wonder3D_to_Large_Multiview_ Gaussian_Model_to_3DGS and_3DMesh
-|❌
-|
-|"Convert 3DGS to Mesh with NeRF and Marching Cubes" 节点报错 ('NoneType' object has no attribute 'ray_aabb_intersect')
+|🆗
+|link:screenshots-pt25/Wonder3D_LGM.webp[🖼️]
+|上一版整合包不兼容，新版改进
 
 |Zero123Plus_to_InstantMesh
 |🆗
-|link:screenshots-pt24/Zero123Plus_to_InstantMesh.webp[🖼️]
+|link:screenshots-pt25/Zero123Plus_InstantMesh.webp[🖼️]
 |
 
 |===
 
 
-### 额外建议
+### 额外信息
 
-* 如果你想运行 
-https://github.com/Stability-AI/stable-fast-3d[Stable Fast 3D]
-，建议用我的另一个整合包
-https://github.com/YanWenKun/StableFast3D-WinPortable[StableFast3D-WinPortable]
-，它只做这一件事。
+* 相较于旧版 `pt24-cu121`，新版 `pt25-cu124` 在兼容性上没有退化，之前兼容的工作流均可继续工作。
 
-* 如果需要运行上述不兼容的工作流，可尝试在 Linux 下运行。
+* 如需运行上表中不兼容的工作流，可尝试在 Linux 下运行。
 Linux 下通过 GCC 生态编译 CUDA 核函数要顺畅得多，甚至可移植性也更好。
 可以参考 3D-Pack 提供的
 https://github.com/MrForExample/ComfyUI-3D-Pack/blob/main/Dockerfile[Dockerfile]
@@ -198,41 +202,34 @@ https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-c
 。
 
 1.2. 安装
-https://developer.nvidia.com/cuda-12-1-1-download-archive?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_network[CUDA Toolkit 12.1.1]
-或
 https://developer.nvidia.com/cuda-12-4-1-download-archive?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_network[CUDA Toolkit 12.4.1]
-，两者均可，建议用 12.4.1 以便于兼容新版 MSVC。
 
 ** 安装时仅需要选择
-https://github.com/YanWenKun/ComfyUI-Windows-Portable/raw/c305814599057e77baa72a76eacd21cf021d1656/docs/cuda-toolkit-install-selection.webp[Libraries 与 Compilers]
-。
+https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/docs/cuda-toolkit-install-selection.webp[Libraries 与 Compilers]
 
-** 如果显卡驱动较老 （对于 CUDA 12.1，低于 530；对于 CUDA 12.4，低于 550），
-安装 CUDA Toolkit 时可一并选择安装新驱动。该工具不会安装最新驱动，而是 CUDA 12.x 对应版本。如果已经安装了更新版本的驱动，则没有必要降级。
+** 如果显卡驱动较老（低于 550），
+安装 CUDA Toolkit 时可一并选择安装新驱动。该工具不会安装最新驱动，而是 CUDA 12.4.1 对应版本。如果已经安装了更新版本的驱动，则没有必要降级。
 
 1.3. 安装 Visual Studio Build Tools 2022
 （
 https://visualstudio.microsoft.com/downloads/?q=build+tools[下载页面]
 |
 https://aka.ms/vs/17/release/vs_BuildTools.exe[安装程序]
-），
+）
 
 ** 在安装界面选择“桌面C++开发”。
 
-** 如果你在上一步中选用 CUDA 12.1，你需要在安装时选择 MSVC 17.4 相关组件
-（或
-https://docs.nvidia.com/cuda/archive/12.1.0/cuda-installation-guide-microsoft-windows/index.html#id2[更早版本]
-）。
-
-** 如果选用 CUDA 12.4，使用当前默认的 MSVC 17.12 即可。
-
 ** 如已安装 Visual Studio C++ 工作负载，不必重复安装。Build Tools 与普通 VS 基本相同，只是没有 GUI 界面。
+
+** （备忘）如果新版 VS 发布，你需要手动选择安装 17.x 版本（比如 17.12）以及 MSVC v143。参考
+https://docs.nvidia.com/cuda/archive/12.4.1/cuda-installation-guide-microsoft-windows/index.html#id9[CUDA 12.4 编译器支持]
+。
 
 ### 2. 下载并配置
 
 2.1. 在 Releases 页面下载压缩包：
 
-** https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r3-pt24
+** https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r6-pt25
 ** 注意有多个文件（压缩包分卷），需要全部下载后解压。
 
 
@@ -273,38 +270,56 @@ https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-c
 各项均有相应说明，可按需取消注释（删除行首的 `rem`）并编辑保存文件。
 
 
-### 3. （可选步骤）额外配置
+### 3. （可选）用于 Stable Fast 3D 的额外设置
 
-3.1. 整合包中已安装
-ComfyUI-Manager（ComfyUI 管家／管理器）和
-AIGODLIKE-ComfyUI-Translation（ComfyUI 界面翻译），
-但是默认未启用。
+SF3D 的模型不能直接下载，需要先同意协议，再使用身份令牌下载。
 
-** 因之前一些 issues 中，使用者有意无意间让 ComfyUI-Manager 更新升级了 Python 包，导致 Comfy3D 依赖项不兼容，故这里默认禁用。
+3.1. 注册／登录
+https://huggingface.co/login[Hugging Face]。
 
-** 界面翻译插件没有兼容问题，这里只是本着最小化原则没有默认启用。
+3.2. 打开
+https://huggingface.co/stabilityai/stable-fast-3d[Stable Fast 3D 仓库页面]
+，填写表格，并同意 Stability AI 的协议。
 
-** 如需启用，在 `ComfyUI\custom_nodes` 找到对应文件夹，将其重命名，去掉末尾的 `.disabled`，这样 ComfyUI 启动时就会将其加载。
+3.3. 打开
+https://huggingface.co/settings/tokens/new?tokenType=read[Access Tokens 页面]
+，创建一个只读 token。
 
+3.4. 编辑启动脚本，找到：
 
-3.2. 如果你想用 Sandboxie 沙盒来隔离整个 Python + ComfyUI 实例，接下来的步骤就该在沙盒中进行了。
-并且为了 I/O 性能（程序最多可下载上百GB模型文件），建议在“沙盒选项”-“资源访问”中，将程序主目录（`Comfy3D_WinPortable`）配置为“开放”。
+ rem set HF_TOKEN=
 
+将其修改为：
 
-### 4. 首次启动
+ set HF_TOKEN=你刚创建的只读token
 
-4.1. 运行 `!首次运行-编译安装依赖项.bat` ，等待其完成编译、安装。如果过程中失败，再次运行该脚本即可。
+比如：
 
-4.2. 如果你需要运行 Unique3D 相关工作流，运行 `下载Unique3D所需模型.bat` 。
+ set HF_TOKEN=hf_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgh
 
-4.3. 运行 `run_cn.bat` ，待启动完毕后，程序会自动打开浏览器，或可手动访问： http://localhost:8188/
+之后在执行 SF3D 工作流时，加载器节点就会自行下载模型文件。
 
-4.4. 在网页左侧，找到“工作流”按钮，点击后可看到 3D-Pack 样例工作流，相关的样例文件也已经放在 `input` 目录下。
+### 4. （可选）沙盒化
+
+如果你想用 Sandboxie 来隔离整个 Python + ComfyUI 实例，接下来的步骤应在沙盒中进行。
+
+因程序最多可下载上百 GiB 模型文件，考虑到 I/O 性能，
+建议在“沙盒选项”-“资源访问”中，将程序主目录（`Comfy3D_WinPortable`）配置为“开放”。
+
+### 5. 首次启动
+
+5.1. 运行 `!首次运行-编译安装依赖项.bat` ，等待其完成，耗时约 10~30 分钟。如果过程中失败，再次运行该脚本即可。
+
+5.2. 如果你需要运行 Unique3D 相关工作流，运行 `下载Unique3D所需模型.bat` 。
+
+5.3. 运行 `run_cn.bat` ，待启动完毕后，程序会自动打开浏览器，或可手动访问： http://localhost:8188/
+
+5.4. 在网页左侧，找到“工作流”按钮，点击后可看到 3D-Pack 样例工作流，相关的样例文件也已经放在 `input` 目录下。
 打开一个工作流，点击“队列”或“Queue”即可开始执行。
 
 如需关闭程序，关闭命令行窗口即可。
 
-再次启动程序时，只需运行 `run_cn.bat` 即可。
+下一次启动程序时，只需运行 `run_cn.bat` 即可。
 
 
 ## 备用脚本
@@ -328,17 +343,19 @@ AIGODLIKE-ComfyUI-Translation（ComfyUI 界面翻译），
 
 ** 该脚本不是下载特定版本的依赖项源代码，而是下载最新版本。考虑到用户执行该脚本时，很可能是“首次运行”脚本不起作用的情况，故此设计。
 
-** 该脚本会额外编译安装 `kiuikit` 与 `nvdiffrast`。在我之前的测试中，这两者没必要放入“首次运行”脚本中，此处补全以防万一。
+** 该脚本会额外编译安装 `kiuikit`、`utils3d` 与 `nvdiffrast`。在我之前的测试中，这三者没必要放入“首次运行”脚本中，此处补全以防万一。
 
 ** 该脚本会在 `tmp_build` 目录下保留临时文件，并保存轮子（.whl）文件，以便日后复用。注意这些二进制文件并非完整可移植，在其他机器上很可能报错。
 
 
-## 未来版本
+[[make-your-own]]
+## DIY 打包
 
-下一版会基于
-PyTorch 2.5.1
-和 CUDA 12.4，
-并且只关注 2024 年 11 月后的新模型／工作流，比如 混元3D-1 等。
+如需定制本项目，先 fork 本仓库，然后在 Actions 页面下找到 Build & Upload pt25-cu124 Package 工作流，再点击 Run workflow 即可。
+流水线执行需约 20 分钟，之后在 Releases 页面即可找到待发布状态的压缩包。
 
-其构建脚本已经完成，本地简单测试也可用，如果你想提前体验，可以利用 GitHub Actions 自行构建，方法：先 fork 本仓库，然后在 Actions 页面下找到 Build & Upload pt25-cu124 Package，再点击 Run workflow 即可。
-待流水线执行完毕后，在 Releases 页面即可找到待发布状态的文件，下载解压即可，使用方法与当前版本相同。
+定制举例：
+
+* 如果不需要使用 CharacterGen，可在 `requirementsB.txt` 中删除 `diffusers==0.29.1`
+* 如果不需要使用 CRM，可在 `requirementsB.txt` 中删除 `open-clip-torch==2.24.0`
+* 如使用 Ampere 及以上显卡，可在 `requirements8.txt` 中启用 Flash Attention

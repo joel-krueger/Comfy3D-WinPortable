@@ -1,6 +1,6 @@
 # Comfy3D Windows Portable
 
-image::screenshots-pt24/CharacterGen_Vanilla.webp["Screenshot"]
+image::screenshots-pt25/CRM_MV_Unique3D.webp["Screenshot"]
 
 [.text-center]
 English | *link:README.zh.adoc[中文]*
@@ -9,16 +9,13 @@ A semi-portable package dedicated for running
 https://github.com/MrForExample/ComfyUI-3D-Pack[ComfyUI-3D-Pack]
 on Windows.
 
-* NEW: A 
-https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r4-pt25[special release]
-for TRELLIS.
 
 ## What Can It Do?
 
-This build, `pt24-cu121`, is based on PyTorch 2.4.0 with CUDA 12.1,
+This build, `pt25-cu124`, is based on PyTorch 2.5.1 with CUDA 12.4,
 targeting the
-https://github.com/MrForExample/ComfyUI-3D-Pack/tree/bdc5e3029ed96d9fa25e651e12fce1553a4422c4[Oct 18, 2024]
-version of ComfyUI-3D-Pack. Workflows that are "too new" or "too old" are not supported in this build.
+https://github.com/MrForExample/ComfyUI-3D-Pack/tree/a35a737676cf3cbb23360d98032870e242dae199[Dec 18, 2024]
+version of ComfyUI-3D-Pack.
 
 I tested all the example workflows on a fairly-old TITAN Xp GPU (12GB VRAM). The results are as follows:
 
@@ -26,40 +23,60 @@ I tested all the example workflows on a fairly-old TITAN Xp GPU (12GB VRAM). The
 |===
 |Workflow|Status|Screenshot|Memo
 
+|Trellis_Image_to_Mesh
+|🆗
+|link:screenshots-pt25/TRELLIS.webp[🖼️]
+|(NEW) Default to xFormers for compatibility. If want to enable Flash Attention, see <<make-your-own, Make Your Own>>.
+
+|Hunyuan3D_V1
+|🆗
+|link:screenshots-pt25/Hunyuan3Dv1.webp[🖼️]
+|(NEW) Default to xFormers for compatibility. If want to enable Flash Attention, see <<make-your-own, Make Your Own>>.
+
+|StableFast3D/sf3d_by_stability_ai
+|🆗
+|link:screenshots-pt25/SF3D_SAI.webp[🖼️]
+|(NEW) Workflow from https://github.com/Stability-AI/stable-fast-3d[Stability AI].
+
+|StableFast3D_to_Mesh
+|🆗
+|link:screenshots-pt25/SF3D.webp[🖼️]
+|Workflow from 3D-Pack.
+
 |CharacterGen_Vanilla
 |🆗
-|link:screenshots-pt24/CharacterGen_Vanilla.webp[🖼️]
-|
+|link:screenshots-pt25/CharacterGen_Vanilla.webp[🖼️]
+|For compatibility with CharacterGen Loader, an older version of `diffusers` is used. May drop support in the future to avoid impacting the use of new models.
 
 |CharacterGen_to_Unique3D
 |🆗
-|link:screenshots-pt24/CharacterGen_to_Unique3D.webp[🖼️]
-|
+|link:screenshots-pt25/CharacterGen_Unique3D.webp[🖼️]
+|Workflow executes successfully, however the generated mesh is broken.
 
 |CharacterGen_InstantMesh
 |❓
 |
-|Out of memory at "InstantMesh Reconstruction Model" node.
+|CharacterGen: 🆗; InstantMesh: OOM
 
 |CRM MVDiffusion_to_Craftsman
 |🆗
-|link:screenshots-pt24/CRM_MVDiffusion_to_Craftsman.webp[🖼️]
-|
+|link:screenshots-pt25/CRM_MV_Craftsman.webp[🖼️]
+|For compatibility with CRM Loader, an older version of `open-clip-torch` is used, which does not affect other models.
 
 |CRM MVDiffusion_to_Unique3D
 |🆗
-|link:screenshots-pt24/CRM_MVDiffusion_to_Unique3D.webp[🖼️]
+|link:screenshots-pt25/CRM_MV_Unique3D.webp[🖼️]
 |
 
 |CRM_Img_to_Multi-views_to_CCMs_to_Mesh
 |🆗
-|link:screenshots-pt24/CRM_Img_to_Multi-views_to_CCMs_to_Mesh.webp[🖼️]
+|link:screenshots-pt25/CRM_MV_CCM.webp[🖼️]
 |
 
 |CRM MVDiffusion_to_InstantMesh
 |❌
 |
-|PyTorch version incompatible.
+|Incompatible InstantMesh node
 
 |CRM_T2I_V2 +
 CRM_T2I_V3
@@ -69,91 +86,89 @@ CRM_T2I_V3
 
 |Unique3D_All_Stages
 |🆗
-|link:screenshots-pt24/Unique3D_All_Stages.webp[🖼️]
+|link:screenshots-pt25/Unique3D_All.webp[🖼️]
 |As well as Unique3D stage 0 to 3.
 
 |Unique3D_with_Era3D_All
-|❌
-|
-|PyTorch version incompatible.
+|🆗
+|link:screenshots-pt25/Unique3D_Era3D.webp[🖼️]
+|Previously incompatible. Now working.
 
 |[FlexiCubes] Multi-View Depth plus Optional Normal maps to 3D Mesh
 |🆗
-|link:screenshots-pt24/FlexiCubes.webp[🖼️]
+|link:screenshots-pt25/FlexiCubes.webp[🖼️]
 |
 
 |Era3D_to_InstantMesh
-|❌
-|
-|PyTorch version incompatible.
+|❓
+|link:screenshots-pt25/Era3D_InstantMesh.webp[🖼️]
+|Era3D: 🆗; InstantMesh: OOM or cube.
 
 |Multi-View-Images_to_Instant-NGP_to_ DiffRast_to_3DMesh
-|❌
-|
-|Throwing ('NoneType' object has no attribute 'ray_aabb_intersect') at "Instant NGP" node.
+|🆗
+|link:screenshots-pt25/MV_InstantNGP_DiffRast.webp[🖼️]
+|Previously incompatible. Now working.
 
 |MVDream_to_Large_Multiview_Gaussian_ Model_to_3DGS and_3DMesh
-|❌
-|
-|Throwing ('NoneType' object has no attribute 'ray_aabb_intersect') at "Convert 3DGS to Mesh with NeRF and Marching Cubes" node.
+|🆗
+|link:screenshots-pt25/MVDream_LGM.webp[🖼️]
+|Previously incompatible. Now working.
 
 |Render_Mesh_and_3DGS_Example
 |🆗
-|link:screenshots-pt24/Render_Mesh_and_3DGS_Example.webp[🖼️]
-|
-
-|StableFast3D_to_Mesh
-|🆗
-|link:screenshots-pt24/StableFast3D_to_Mesh.webp[🖼️]
+|link:screenshots-pt25/Render_Example.webp[🖼️]
 |
 
 |Triplane_Gaussian_Transformers_to_ 3DGS_and_3DMesh
-|❌
-|
-|Throwing ('NoneType' object has no attribute 'ray_aabb_intersect') at "Convert 3DGS to Mesh with NeRF and Marching Cubes" node.
+|🆗
+|link:screenshots-pt25/Triplane_Gaussian.webp[🖼️]
+|Previously incompatible. Now working.
 
 |TripoSR_to_Mesh
 |🆗
-|link:screenshots-pt24/TripoSR_to_Mesh.webp[🖼️]
+|link:screenshots-pt25/TripoSR.webp[🖼️]
 |The "easy" model that always works.
 
 |Using_Stack_Orbit_Camera_Poses_
 to_conditioning_StableZero123
 |🆗
-|link:screenshots-pt24/Orbit_Camera.webp[🖼️]
+|link:screenshots-pt25/OrbitCamera_StableZero123.webp[🖼️]
 |
 
 |Wonder3D_to_Large_Multiview_ Gaussian_Model_to_3DGS and_3DMesh
-|❌
-|
-|Throwing ('NoneType' object has no attribute 'ray_aabb_intersect') at "Convert 3DGS to Mesh with NeRF and Marching Cubes" node.
+|🆗
+|link:screenshots-pt25/Wonder3D_LGM.webp[🖼️]
+|Previously incompatible. Now working.
 
 |Zero123Plus_to_InstantMesh
 |🆗
-|link:screenshots-pt24/Zero123Plus_to_InstantMesh.webp[🖼️]
+|link:screenshots-pt25/Zero123Plus_InstantMesh.webp[🖼️]
 |
 
 |===
 
+* Compared to the previous `pt24-cu121` build, the new `pt25-cu124` shows no regression in compatibility. All workflows that worked previously continue to function in the new build.
 
 ## Before You Start...
 
-Few things I want to mention first, that may save you A LOT of time...
-
-1. If you're looking for Stable Fast 3D, which generate 3D-mesh from single image, just use
-https://github.com/YanWenKun/StableFast3D-WinPortable[StableFast3D-WinPortable].
-It does only one thing and does it well.
-
-2. Everything in Comfy3D works more smoothly on Linux. Most 3D workflows are research-oriented and far from production-ready. By installing & running them you're essentially replicating the development environment used by researchers. Many components need to be compiled before running, and this is exactly where Linux excels.
-Check out
-https://github.com/MrForExample/ComfyUI-3D-Pack/blob/main/Dockerfile[Dockerfile]
-or my
-https://github.com/YanWenKun/ComfyUI-Docker/tree/main/comfy3d-pt25[Docker image]
-if you're familiar with containers.
-
-3. Know your GPU's CUDA arch number. For example, RTX 2080 is `7.5`, RTX 3090 is `8.6` and RTX 4090 is `8.9`.
+. Know your GPU's CUDA arch number. For example, RTX 2080 is `7.5`, RTX 3090 is `8.6` and RTX 4090 is `8.9`.
 You can find the number in
 https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/[this article].
+
+. (Optional) If you want to use 
+https://github.com/Stability-AI/stable-fast-3d[Stable Fast 3D],
+you need a Hugging Face access token to download it.
+
+** Register/Login
+https://huggingface.co/login[Hugging Face].
+
+** Go to
+https://huggingface.co/stabilityai/stable-fast-3d[Stable Fast 3D repository],
+fill in and agree Stability AI's License Agreement.
+
+** Go to
+https://huggingface.co/settings/tokens/new?tokenType=read[Access Tokens],
+create a read-only token. Save it somewhere for later use.
 
 
 ## Download, Install, Compile and Run
@@ -161,16 +176,13 @@ https://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-c
 ### 1. Basic Requirements
 
 1.1. Install 
-https://developer.nvidia.com/cuda-12-1-1-download-archive?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_network[CUDA Toolkit 12.1.1]
-or
 https://developer.nvidia.com/cuda-12-4-1-download-archive?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_network[CUDA Toolkit 12.4.1].
-Both are fine, choose 12.4.1 if you have other newer ComfyUI instances.
 
 ** Only
-https://github.com/YanWenKun/ComfyUI-Windows-Portable/raw/c305814599057e77baa72a76eacd21cf021d1656/docs/cuda-toolkit-install-selection.webp[Libraries and Compilers]
+https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/docs/cuda-toolkit-install-selection.webp[Libraries and Compilers]
 are needed to install.
 
-** If your GPU driver is outdated (<530 for CUDA 12.1, <550 for CUDA 12.4), you can install the driver provided by the CUDA Toolkit installer. Otherwise, you don't need to downgrade the driver version.
+** If your GPU driver is outdated (<550), you can install the driver provided by the CUDA Toolkit installer. Otherwise, you don't need to downgrade the driver version.
 
 1.2. Install Visual Studio Build Tools 2022
 (
@@ -181,17 +193,16 @@ https://aka.ms/vs/17/release/vs_BuildTools.exe[EXE]
 
 ** During the setup, select "Desktop development with C++" workload.
 
-** If you're using CUDA 12.1, you need to select MSVC 17.4 (or
-https://docs.nvidia.com/cuda/archive/12.1.0/cuda-installation-guide-microsoft-windows/index.html#id2[earlier]
-).
-
-** For CUDA 12.4, it's fine to use current default MSVC 17.12.
+** (Just in case) If new major version of Visual Studio is released,
+you need to manually select version 17.x (e.g. 17.12) and MSVC v143.
+Referring to
+https://docs.nvidia.com/cuda/archive/12.4.1/cuda-installation-guide-microsoft-windows/index.html#id9[CUDA 12.4 compiler support].
 
 ### 2. Download and Config
 
 2.1. Download the package files from the release page:
 
-** https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r3-pt24
+** https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r6-pt25
 ** Note that there are multiple files (compressed in volumes) that need to be downloaded. Extract it to a convenient place.
 
 
@@ -228,14 +239,21 @@ edit it and save the file.
 
 ### 3. (Optional) Extra Config
 
-3.1. The ComfyUI-Manager and AIGODLIKE-ComfyUI-Translation are installed but disabled.
-If you really want to use them, in `ComfyUI\custom_nodes` folder, rename them and remove the trailing `.disabled`, so they will be loaded on start.
+3.1. If you are going to run Stable Fast 3D workflow, you need to edit the start script `run.bat`, find the line:
 
-** ComfyUI-Manager may damage the dependencies of Comfy3D, so it's disabled by default.
-** https://github.com/AIGODLIKE/AIGODLIKE-ComfyUI-Translation[AIGODLIKE-ComfyUI-Translation] is for multilingual translation of ComfyUI.
+ rem set HF_TOKEN=
+
+and edit it to:
+
+ set HF_TOKEN=hf_your_token
+
+For example:
+
+ set HF_TOKEN=hf_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgh
 
 
-3.2. If you want to use Sandboxie to isolate this instance, the following steps should be executed in a sandbox.
+3.2. If you want to use Sandboxie to isolate this instance of Python + ComfyUI, the following scripts should be executed in a sandbox.
+
 In addition, I recommend to set the program folder (`Comfy3D_WinPortable`) to "Full Access" under "Sandbox Settings - Resource Access", to improve disk I/O.
 
 
@@ -243,13 +261,18 @@ In addition, I recommend to set the program folder (`Comfy3D_WinPortable`) to "F
 
 4.1. Run `!FIRST_RUN-compile-install.bat`. Wait until it finish installation. If it fails, simply run it again.
 
+** Depending on hardware, it may take 10~30 minutes.
+
 4.2. If you are going to run Unique3D workflows, run `download-models-for-Unique3D.bat`.
 
 4.3. Run `run.bat`. After starting, the program will automatically open a browser, or you can visit: http://localhost:8188/
 
 4.4. In the left sidebar, you can find the "Workflows" button, the example workflows are listed there. The example input files are already in the `input` folder. Open a workflow and click "Queue" at bottom of the page to run the workflow.
 
+To shutdown the program, simply close the console window.
+
 To start the program in the future, simply run `run.bat`.
+
 
 ## Troubleshooting
 
@@ -279,16 +302,47 @@ There are few differences from the FIRST_RUN, this script will:
 
 ** Download the latest source repos, not the targeted versions. This may help with compatibility issues when the FIRST_RUN doesn't work.
 
-** Additionally compile-install `kiuikit` and `nvdiffrast`. In my tests, it's not necessary to do so in the FIRST_RUN. I put them here for fail-safe.
+** Additionally compile-install `kiuikit`, `utils3d` and `nvdiffrast`. In my tests, it's not necessary to do so in the FIRST_RUN. I put them here for fail-safe.
 
 ** Keep temporary files and save artifacts (.whl files) in the working folder `tmp_build`, allowing you to reuse them. Keep in mind they are not essentially portable.
 
+### Last and Guaranteed - Linux
 
-## What's Next
+If you run into complicated compatibility issues, try Linux.
 
-The next package will be based on PyTorch 2.5.1 with CUDA 12.4.
-It will only focus on new workflows since November 2024, such as Hunyuan3D-1.
+Everything in Comfy3D works more smoothly on Linux.
+Most 3D workflows are research-oriented and far from production-ready.
+By installing & running them you're essentially replicating the development environment used by researchers.
+Many components need to be compiled before running, and this is exactly where Linux excels.
+
+Check out
+https://github.com/MrForExample/ComfyUI-3D-Pack/blob/main/Dockerfile[Dockerfile]
+or my
+https://github.com/YanWenKun/ComfyUI-Docker/tree/main/comfy3d-pt25[Docker image]
+if you're familiar with containers.
+
 
 It's now working but not released yet.
-If you'd like to have a preview, simply fork this repo and go to "Actions" page, then you can build it using GitHub Actions.
+If you'd like to have a preview, , then you can build it using GitHub Actions.
 After building, you can find the 7z files in "Releases" page and download them.
+
+[[make-your-own]]
+## Make Your Own
+
+You can build this package using GitHub Actions.
+Simply fork this repo and go to "Actions" page,
+find "Build & Upload pt25-cu124 Package" and then find "Run workflow".
+
+The workflow takes about 20 minutes to finish.
+After that, you can find the 7z files in the "Releases" page.
+
+Examples of custom modification:
+
+* If you never use CharacterGen,
+you can delete `diffusers==0.29.1` in `requirementsB.txt`.
+
+* If you never use CRM,
+you can delete `open-clip-torch==2.24.0` in `requirementsB.txt`.
+
+* If you are using Ampere of later GPUs, 
+you can enable Flash Attention in `requirements8.txt`.
