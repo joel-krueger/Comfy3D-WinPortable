@@ -1,3 +1,5 @@
+This is an archived builder for TRELLIS gradio app (official demo).
+
 How to build:
 
 1. Fork this repo on GitHub
