@@ -47,5 +47,16 @@ set CMAKE_ARGS=-DBUILD_opencv_world=ON -DWITH_CUDA=ON -DCUDA_FAST_MATH=ON -DWITH
  .\extras\diffoctreerast
 
 @REM ===========================================================================
+@REM 确保使用 NumPy1
 
 .\python_embeded\python.exe -s -m pip install numpy==1.26.4
+
+@REM ===========================================================================
+@REM 复制 u2net.onnx 到用户主目录下，以免启动时还需下载。
+
+IF NOT EXIST "%USERPROFILE%\.u2net\u2net.onnx" (
+    IF EXIST ".\extras\u2net.onnx" (
+        mkdir "%USERPROFILE%\.u2net" 2>nul
+        copy ".\extras\u2net.onnx" "%USERPROFILE%\.u2net\u2net.onnx"
+    )
+)

@@ -45,5 +45,16 @@ set PATH=%PATH%;%~dp0\python_embeded\Scripts
  .\extras\diffoctreerast
 
 @REM ===========================================================================
+@REM Ensure NumPy1
 
 .\python_embeded\python.exe -s -m pip install numpy==1.26.4
+
+@REM ===========================================================================
+@REM Copy u2net.onnx to user's home path, to skip download at first start.
+
+IF NOT EXIST "%USERPROFILE%\.u2net\u2net.onnx" (
+    IF EXIST ".\extras\u2net.onnx" (
+        mkdir "%USERPROFILE%\.u2net" 2>nul
+        copy ".\extras\u2net.onnx" "%USERPROFILE%\.u2net\u2net.onnx"
+    )
+)
