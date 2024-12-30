@@ -32,6 +32,10 @@ set TORCH_HOME=%~dp0\TorchHome
 set PATH=%PATH%;%~dp0\python_embeded\Scripts
 set PATH=%PATH%;%CUDA_HOME%\bin
 
+@REM This command will set include path for NVRTC compiler, crucial for cumm - spconv - TRELLIS
+@REM https://github.com/traveller59/spconv#prebuilt-gpu-support-matrix
+set CUMM_INCLUDE_PATH=%~dp0\python_embeded\Lib\site-packages\cumm\include
+
 @REM This command will let the .pyc files to be stored in one place.
 set PYTHONPYCACHEPREFIX=%~dp0\pycache
 

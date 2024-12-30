@@ -34,6 +34,11 @@ set TORCH_HOME=%~dp0\TorchHome
 set PATH=%PATH%;%~dp0\python_embeded\Scripts
 set PATH=%PATH%;%CUDA_HOME%\bin
 
+@REM 该命令配置 NVRTC 会用到的头文件，影响 cumm - spconv - TRELLIS
+@REM SpConv 会对没有预编译的 GPU 架构进行运行时编译
+@REM 参考： https://github.com/traveller59/spconv#prebuilt-gpu-support-matrix
+set CUMM_INCLUDE_PATH=%~dp0\python_embeded\Lib\site-packages\cumm\include
+
 @REM 该环境变量使 .pyc 缓存文件集中保存在一个文件夹下，而不是随 .py 文件分布。
 set PYTHONPYCACHEPREFIX=%~dp0\pycache
 
