@@ -21,6 +21,7 @@ rem set HF_ENDPOINT=https://hf-mirror.com
 rem set HF_HUB_ENABLE_HF_TRANSFER=1
 
 @REM ===========================================================================
+@REM These settings usually don't need change.
 
 @REM This command redirects HuggingFace-Hub to download model files in this folder.
 set HF_HUB_CACHE=%~dp0\HuggingFaceHub
@@ -34,12 +35,14 @@ set PATH=%PATH%;%CUDA_HOME%\bin
 
 @REM This command will set include path for NVRTC compiler, crucial for cumm - spconv - TRELLIS
 @REM https://github.com/traveller59/spconv#prebuilt-gpu-support-matrix
+@REM https://github.com/traveller59/spconv/blob/master/docs/PURE_CPP_BUILD.md
 set CUMM_INCLUDE_PATH=%~dp0\python_embeded\Lib\site-packages\cumm\include
 
 @REM This command will let the .pyc files to be stored in one place.
 set PYTHONPYCACHEPREFIX=%~dp0\pycache
 
 @REM ===========================================================================
+@REM Start ComfyUI
 
 @REM If you don't want the browser to open automatically, add [ --disable-auto-launch ] to the end of the line below.
 .\python_embeded\python.exe -s ComfyUI\main.py --windows-standalone-build 

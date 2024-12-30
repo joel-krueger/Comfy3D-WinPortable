@@ -17,6 +17,7 @@ rem set HTTPS_PROXY=http://localhost:1081
 rem set HF_HUB_ENABLE_HF_TRANSFER=1
 
 @REM ===========================================================================
+@REM 该部分设置一般无需更改
 
 @REM 该环境变量配置 PIP 使用国内镜像站点。
 set PIP_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
@@ -37,6 +38,7 @@ set PATH=%PATH%;%CUDA_HOME%\bin
 @REM 该命令配置 NVRTC 会用到的头文件，影响 cumm - spconv - TRELLIS
 @REM SpConv 会对没有预编译的 GPU 架构进行运行时编译
 @REM 参考： https://github.com/traveller59/spconv#prebuilt-gpu-support-matrix
+@REM 来源： https://github.com/traveller59/spconv/blob/master/docs/PURE_CPP_BUILD.md
 set CUMM_INCLUDE_PATH=%~dp0\python_embeded\Lib\site-packages\cumm\include
 
 @REM 该环境变量使 .pyc 缓存文件集中保存在一个文件夹下，而不是随 .py 文件分布。
