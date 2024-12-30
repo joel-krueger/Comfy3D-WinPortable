@@ -26,12 +26,12 @@ I tested all the example workflows on a fairly-old TITAN Xp GPU (12GB VRAM). The
 |Trellis_Image_to_Mesh
 |🆗
 |link:screenshots-pt25/TRELLIS.webp[🖼️]
-|(NEW) Default to xFormers for compatibility. If want to enable Flash Attention, see <<make-your-own, Make Your Own>>.
+|(NEW) Default to xFormers for compatibility. To enable Flash Attention, see <<make-your-own, Make Your Own>>.
 
 |Hunyuan3D_V1
 |🆗
 |link:screenshots-pt25/Hunyuan3Dv1.webp[🖼️]
-|(NEW) Default to xFormers for compatibility. If want to enable Flash Attention, see <<make-your-own, Make Your Own>>.
+|(NEW) Default to xFormers for compatibility. To enable Flash Attention, see <<make-your-own, Make Your Own>>.
 
 |StableFast3D/sf3d_by_stability_ai
 |🆗
