@@ -57,32 +57,32 @@ https://github.com/MrForExample/ComfyUI-3D-Pack/tree/a35a737676cf3cbb23360d98032
 
 |Trellis_Image_to_Mesh
 |🆗
-|link:screenshots-pt25/TRELLIS.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/TRELLIS.webp[🖼️]
 |（新）默认使用 xFormers 以保证兼容性，若想改用 Flash Attention 需定制（见文尾）
 
 |Hunyuan3D_V1
 |🆗
-|link:screenshots-pt25/Hunyuan3Dv1.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Hunyuan3Dv1.webp[🖼️]
 |（新）默认使用 xFormers 以保证兼容性，若想改用 Flash Attention 需定制（见文尾）
 
 |StableFast3D/sf3d_by_stability_ai
 |🆗
-|link:screenshots-pt25/SF3D_SAI.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/SF3D_SAI.webp[🖼️]
 |（新）工作流来自 https://github.com/Stability-AI/stable-fast-3d[Stability AI]
 
 |StableFast3D_to_Mesh
 |🆗
-|link:screenshots-pt25/SF3D.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/SF3D.webp[🖼️]
 |工作流来自 3D-Pack
 
 |CharacterGen_Vanilla
 |🆗
-|link:screenshots-pt25/CharacterGen_Vanilla.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/CharacterGen_Vanilla.webp[🖼️]
 |为了兼容 CharacterGen Loader 而使用了旧版 `diffusers`。未来考虑移除支持，以免影响新模型的使用。
 
 |CharacterGen_to_Unique3D
 |🆗
-|link:screenshots-pt25/CharacterGen_Unique3D.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/CharacterGen_Unique3D.webp[🖼️]
 |可运行，但生成 Mesh 残缺，原因不明
 
 |CharacterGen_InstantMesh
@@ -92,17 +92,17 @@ https://github.com/MrForExample/ComfyUI-3D-Pack/tree/a35a737676cf3cbb23360d98032
 
 |CRM MVDiffusion_to_Craftsman
 |🆗
-|link:screenshots-pt25/CRM_MV_Craftsman.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/CRM_MV_Craftsman.webp[🖼️]
 |为了兼容 CRM Loader 而使用了旧版 `open-clip-torch`，对其他模型暂无影响。
 
 |CRM MVDiffusion_to_Unique3D
 |🆗
-|link:screenshots-pt25/CRM_MV_Unique3D.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/CRM_MV_Unique3D.webp[🖼️]
 |
 
 |CRM_Img_to_Multi-views_to_CCMs_to_Mesh
 |🆗
-|link:screenshots-pt25/CRM_MV_CCM.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/CRM_MV_CCM.webp[🖼️]
 |
 
 |CRM MVDiffusion_to_InstantMesh
@@ -118,63 +118,63 @@ CRM_T2I_V3
 
 |Unique3D_All_Stages
 |🆗
-|link:screenshots-pt25/Unique3D_All.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Unique3D_All.webp[🖼️]
 |该工作流已包含 Unique3D 0~3 步骤，此处省略
 
 |Unique3D_with_Era3D_All
 |🆗
-|link:screenshots-pt25/Unique3D_Era3D.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Unique3D_Era3D.webp[🖼️]
 |上一版整合包不兼容，新版改进
 
 |[FlexiCubes] Multi-View Depth plus Optional Normal maps to 3D Mesh
 |🆗
-|link:screenshots-pt25/FlexiCubes.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/FlexiCubes.webp[🖼️]
 |
 
 |Era3D_to_InstantMesh
 |❓
-|link:screenshots-pt25/Era3D_InstantMesh.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Era3D_InstantMesh.webp[🖼️]
 |Era3D: 🆗; InstantMesh: OOM 或出方块
 
 |Multi-View-Images_to_Instant-NGP_to_ DiffRast_to_3DMesh
 |🆗
-|link:screenshots-pt25/MV_InstantNGP_DiffRast.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/MV_InstantNGP_DiffRast.webp[🖼️]
 |上一版整合包不兼容，新版改进
 
 |MVDream_to_Large_Multiview_Gaussian_ Model_to_3DGS and_3DMesh
 |🆗
-|link:screenshots-pt25/MVDream_LGM.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/MVDream_LGM.webp[🖼️]
 |上一版整合包不兼容，新版改进
 
 |Render_Mesh_and_3DGS_Example
 |🆗
-|link:screenshots-pt25/Render_Example.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Render_Example.webp[🖼️]
 |
 
 |Triplane_Gaussian_Transformers_to_ 3DGS_and_3DMesh
 |🆗
-|link:screenshots-pt25/Triplane_Gaussian.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Triplane_Gaussian.webp[🖼️]
 |上一版整合包不兼容，新版改进
 
 |TripoSR_to_Mesh
 |🆗
-|link:screenshots-pt25/TripoSR.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/TripoSR.webp[🖼️]
 |最易运行的模型
 
 |Using_Stack_Orbit_Camera_Poses_
 to_conditioning_StableZero123
 |🆗
-|link:screenshots-pt25/OrbitCamera_StableZero123.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/OrbitCamera_StableZero123.webp[🖼️]
 |
 
 |Wonder3D_to_Large_Multiview_ Gaussian_Model_to_3DGS and_3DMesh
 |🆗
-|link:screenshots-pt25/Wonder3D_LGM.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Wonder3D_LGM.webp[🖼️]
 |上一版整合包不兼容，新版改进
 
 |Zero123Plus_to_InstantMesh
 |🆗
-|link:screenshots-pt25/Zero123Plus_InstantMesh.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Zero123Plus_InstantMesh.webp[🖼️]
 |
 
 |===

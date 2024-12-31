@@ -25,32 +25,32 @@ I tested all the example workflows on a fairly-old TITAN Xp GPU (12GB VRAM). The
 
 |Trellis_Image_to_Mesh
 |🆗
-|link:screenshots-pt25/TRELLIS.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/TRELLIS.webp[🖼️]
 |(NEW) Default to xFormers for compatibility. To enable Flash Attention, see <<make-your-own, Make Your Own>>.
 
 |Hunyuan3D_V1
 |🆗
-|link:screenshots-pt25/Hunyuan3Dv1.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Hunyuan3Dv1.webp[🖼️]
 |(NEW) Default to xFormers for compatibility. To enable Flash Attention, see <<make-your-own, Make Your Own>>.
 
 |StableFast3D/sf3d_by_stability_ai
 |🆗
-|link:screenshots-pt25/SF3D_SAI.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/SF3D_SAI.webp[🖼️]
 |(NEW) Workflow from https://github.com/Stability-AI/stable-fast-3d[Stability AI].
 
 |StableFast3D_to_Mesh
 |🆗
-|link:screenshots-pt25/SF3D.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/SF3D.webp[🖼️]
 |Workflow from 3D-Pack.
 
 |CharacterGen_Vanilla
 |🆗
-|link:screenshots-pt25/CharacterGen_Vanilla.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/CharacterGen_Vanilla.webp[🖼️]
 |For compatibility with CharacterGen Loader, an older version of `diffusers` is used. May drop support in the future to avoid impacting the use of new models.
 
 |CharacterGen_to_Unique3D
 |🆗
-|link:screenshots-pt25/CharacterGen_Unique3D.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/CharacterGen_Unique3D.webp[🖼️]
 |Workflow executes successfully, however the generated mesh is broken.
 
 |CharacterGen_InstantMesh
@@ -60,17 +60,17 @@ I tested all the example workflows on a fairly-old TITAN Xp GPU (12GB VRAM). The
 
 |CRM MVDiffusion_to_Craftsman
 |🆗
-|link:screenshots-pt25/CRM_MV_Craftsman.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/CRM_MV_Craftsman.webp[🖼️]
 |For compatibility with CRM Loader, an older version of `open-clip-torch` is used, which does not affect other models.
 
 |CRM MVDiffusion_to_Unique3D
 |🆗
-|link:screenshots-pt25/CRM_MV_Unique3D.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/CRM_MV_Unique3D.webp[🖼️]
 |
 
 |CRM_Img_to_Multi-views_to_CCMs_to_Mesh
 |🆗
-|link:screenshots-pt25/CRM_MV_CCM.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/CRM_MV_CCM.webp[🖼️]
 |
 
 |CRM MVDiffusion_to_InstantMesh
@@ -86,63 +86,63 @@ CRM_T2I_V3
 
 |Unique3D_All_Stages
 |🆗
-|link:screenshots-pt25/Unique3D_All.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Unique3D_All.webp[🖼️]
 |As well as Unique3D stage 0 to 3.
 
 |Unique3D_with_Era3D_All
 |🆗
-|link:screenshots-pt25/Unique3D_Era3D.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Unique3D_Era3D.webp[🖼️]
 |Previously incompatible. Now working.
 
 |[FlexiCubes] Multi-View Depth plus Optional Normal maps to 3D Mesh
 |🆗
-|link:screenshots-pt25/FlexiCubes.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/FlexiCubes.webp[🖼️]
 |
 
 |Era3D_to_InstantMesh
 |❓
-|link:screenshots-pt25/Era3D_InstantMesh.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Era3D_InstantMesh.webp[🖼️]
 |Era3D: 🆗; InstantMesh: OOM or cube.
 
 |Multi-View-Images_to_Instant-NGP_to_ DiffRast_to_3DMesh
 |🆗
-|link:screenshots-pt25/MV_InstantNGP_DiffRast.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/MV_InstantNGP_DiffRast.webp[🖼️]
 |Previously incompatible. Now working.
 
 |MVDream_to_Large_Multiview_Gaussian_ Model_to_3DGS and_3DMesh
 |🆗
-|link:screenshots-pt25/MVDream_LGM.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/MVDream_LGM.webp[🖼️]
 |Previously incompatible. Now working.
 
 |Render_Mesh_and_3DGS_Example
 |🆗
-|link:screenshots-pt25/Render_Example.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Render_Example.webp[🖼️]
 |
 
 |Triplane_Gaussian_Transformers_to_ 3DGS_and_3DMesh
 |🆗
-|link:screenshots-pt25/Triplane_Gaussian.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Triplane_Gaussian.webp[🖼️]
 |Previously incompatible. Now working.
 
 |TripoSR_to_Mesh
 |🆗
-|link:screenshots-pt25/TripoSR.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/TripoSR.webp[🖼️]
 |The "easy" model that always works.
 
 |Using_Stack_Orbit_Camera_Poses_
 to_conditioning_StableZero123
 |🆗
-|link:screenshots-pt25/OrbitCamera_StableZero123.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/OrbitCamera_StableZero123.webp[🖼️]
 |
 
 |Wonder3D_to_Large_Multiview_ Gaussian_Model_to_3DGS and_3DMesh
 |🆗
-|link:screenshots-pt25/Wonder3D_LGM.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Wonder3D_LGM.webp[🖼️]
 |Previously incompatible. Now working.
 
 |Zero123Plus_to_InstantMesh
 |🆗
-|link:screenshots-pt25/Zero123Plus_InstantMesh.webp[🖼️]
+|link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Zero123Plus_InstantMesh.webp[🖼️]
 |
 
 |===
@@ -239,7 +239,7 @@ edit it and save the file.
 
 ### 3. (Optional) Extra Config
 
-3.1. If you are going to run Stable Fast 3D workflow, you need to edit the start script `run.bat`, find the line:
+3.1. If you are going to run Stable Fast 3D workflows, you need to edit the start script `run.bat`, find the line:
 
  rem set HF_TOKEN=
 
@@ -252,8 +252,7 @@ For example:
  set HF_TOKEN=hf_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgh
 
 
-3.2. If you want to use Sandboxie to isolate this instance of Python + ComfyUI, the following scripts should be executed in a sandbox.
-
+3.2. If you run multiple ComfyUI instances in Sandboxie, the `.bat` scripts should be executed in a sandbox.
 In addition, I recommend to set the program folder (`Comfy3D_WinPortable`) to "Full Access" under "Sandbox Settings - Resource Access", to improve disk I/O.
 
 
@@ -304,7 +303,7 @@ There are few differences from the FIRST_RUN, this script will:
 
 ** Additionally compile-install `kiuikit`, `utils3d` and `nvdiffrast`. In my tests, it's not necessary to do so in the FIRST_RUN. I put them here for fail-safe.
 
-** Keep temporary files and save artifacts (.whl files) in the working folder `tmp_build`, allowing you to reuse them. Keep in mind they are not essentially portable.
+** Keep temporary files and save artifacts (.whl files) in the working folder `tmp_build`, allowing you to reuse them. Keep in mind that they are not essentially portable.
 
 ### C. Last and Guaranteed - Linux
 
@@ -322,10 +321,6 @@ https://github.com/YanWenKun/ComfyUI-Docker/tree/main/comfy3d-pt25[Docker image]
 if you're familiar with containers.
 
 
-It's now working but not released yet.
-If you'd like to have a preview, , then you can build it using GitHub Actions.
-After building, you can find the 7z files in "Releases" page and download them.
-
 [[make-your-own]]
 ## Make Your Own
 
@@ -339,10 +334,10 @@ After that, you can find the 7z files in the "Releases" page.
 Examples of custom modification:
 
 * If you never use CharacterGen,
-you can delete `diffusers==0.29.1` in `requirementsB.txt`.
+you can delete `diffusers==0.29.1` in `pakB.txt`.
 
 * If you never use CRM,
-you can delete `open-clip-torch==2.24.0` in `requirementsB.txt`.
+you can delete `open-clip-torch==2.24.0` in `pakB.txt`.
 
 * If you are using Ampere or later GPUs, 
-you can enable Flash Attention in `requirements8.txt`.
+you can enable Flash Attention in `pak8.txt`.
