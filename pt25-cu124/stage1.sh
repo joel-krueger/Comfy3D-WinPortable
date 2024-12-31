@@ -59,8 +59,16 @@ $pip_exe install -r "$workdir"/requirements4.txt
 $pip_exe install -r "$workdir"/requirements5.txt
 $pip_exe install -r "$workdir"/requirements6.txt
 
-rm "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py312_torch2.5.1_cu124/torch_scatter-2.1.2-cp312-cp312-win_amd64.whl
-$pip_exe install "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py312_torch2.5.1_cu124/*.whl
+cd "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py312_torch2.5.1_cu124/
+rm torch_scatter-2.1.2-cp312-cp312-win_amd64.whl
+$pip_exe install diff_gaussian_rasterization-0.0.0-cp312-cp312-win_amd64.whl
+$pip_exe install kiui-0.2.14-py3-none-any.whl
+$pip_exe install nvdiffrast-0.3.3-py3-none-any.whl
+$pip_exe install pointnet2_ops-3.0.0-cp312-cp312-win_amd64.whl
+$pip_exe install pytorch3d-0.7.8-cp312-cp312-win_amd64.whl
+$pip_exe install simple_knn-0.0.0-cp312-cp312-win_amd64.whl
+$pip_exe install vox2seq-0.0.0-cp312-cp312-win_amd64.whl
+cd "$workdir"
 
 $pip_exe install -r "$workdir"/requirements8.txt
 $pip_exe install -r "$workdir"/requirements9.txt
