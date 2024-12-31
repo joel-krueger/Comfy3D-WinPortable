@@ -90,7 +90,7 @@ mv "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/ComfyUI-3D-Pack/_Example_
 
 # Copy example input files of SF3D
 cp -r "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes/stable-fast-3d/demo_files/examples/. \
-    "$workdir"/Comfy3D_WinPortable/ComfyUI/input/sf3d
+    "$workdir"/Comfy3D_WinPortable/ComfyUI/input
 
 # Copy example input files of TRELLIS
 cd "$workdir"
@@ -99,7 +99,7 @@ curl -sSL https://github.com/microsoft/TRELLIS/archive/refs/heads/main.zip \
 unzip -q TRELLIS-main.zip
 
 cp -r TRELLIS-main/assets/example_image/. \
-    "$workdir"/Comfy3D_WinPortable/ComfyUI/input/trellis
+    "$workdir"/Comfy3D_WinPortable/ComfyUI/input/trellis-single
 
 cp -r TRELLIS-main/assets/example_multi_image/. \
     "$workdir"/Comfy3D_WinPortable/ComfyUI/input/trellis-multi
