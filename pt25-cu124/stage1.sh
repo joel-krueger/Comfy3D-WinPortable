@@ -53,11 +53,11 @@ curl -sSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 # PIP installs
 $pip_exe install --upgrade pip wheel setuptools
 
-$pip_exe install -r "$workdir"/requirements2.txt
-$pip_exe install -r "$workdir"/requirements3.txt
-$pip_exe install -r "$workdir"/requirements4.txt
-$pip_exe install -r "$workdir"/requirements5.txt
-$pip_exe install -r "$workdir"/requirements6.txt
+$pip_exe install -r "$workdir"/pak2.txt
+$pip_exe install -r "$workdir"/pak3.txt
+$pip_exe install -r "$workdir"/pak4.txt
+$pip_exe install -r "$workdir"/pak5.txt
+$pip_exe install -r "$workdir"/pak6.txt
 
 cd "$workdir"/Comfy3D_Pre_Builds/_Build_Wheels/_Wheels_win_py312_torch2.5.1_cu124/
 rm torch_scatter-2.1.2-cp312-cp312-win_amd64.whl
@@ -70,10 +70,10 @@ $pip_exe install simple_knn-0.0.0-cp312-cp312-win_amd64.whl
 $pip_exe install vox2seq-0.0.0-cp312-cp312-win_amd64.whl
 cd "$workdir"
 
-$pip_exe install -r "$workdir"/requirements8.txt
-$pip_exe install -r "$workdir"/requirements9.txt
-$pip_exe install -r "$workdir"/requirementsA.txt
-$pip_exe install -r "$workdir"/requirementsB.txt
+$pip_exe install -r "$workdir"/pak8.txt
+$pip_exe install -r "$workdir"/pak9.txt
+$pip_exe install -r "$workdir"/pakA.txt
+$pip_exe install -r "$workdir"/pakB.txt
 
 # Add Ninja binary (replacing PIP Ninja)
 ## The 'python_embeded\Scripts\ninja.exe' is not working,

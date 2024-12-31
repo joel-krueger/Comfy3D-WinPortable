@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-echo '#' > requirements5.txt
+echo '#' > pak5.txt
 
 array=(
 https://github.com/comfyanonymous/ComfyUI/raw/refs/heads/master/requirements.txt
@@ -17,17 +17,17 @@ https://github.com/ltdrdata/ComfyUI-Manager/raw/refs/heads/main/requirements.txt
 )
 
 for line in "${array[@]}";
-    do curl -w "\n" -sSL "${line}" >> requirements5.txt
+    do curl -w "\n" -sSL "${line}" >> pak5.txt
 done
 
-sed -i '/^#/d' requirements5.txt
-sed -i 's/[[:space:]]*$//' requirements5.txt
-sed -i 's/>=.*$//' requirements5.txt
-sed -i 's/_/-/g' requirements5.txt
+sed -i '/^#/d' pak5.txt
+sed -i 's/[[:space:]]*$//' pak5.txt
+sed -i 's/>=.*$//' pak5.txt
+sed -i 's/_/-/g' pak5.txt
 
-sort -ufo requirements5.txt requirements5.txt
+sort -ufo pak5.txt pak5.txt
 
-# Remove duplicate items, compare to requirements4.txt
-grep -Fixv -f requirements4.txt requirements5.txt > temp.txt && mv temp.txt requirements5.txt
+# Remove duplicate items, compare to pak4.txt.txt
+grep -Fixv -f pak4.txt.txt pak5.txt > temp.txt && mv temp.txt pak5.txt
 
-echo "<requirements5.txt> generated. Check before use."
+echo "<pak5.txt> generated. Check before use."
