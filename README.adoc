@@ -3,7 +3,7 @@
 image::screenshots-pt25/CRM_MV_Unique3D.webp["Screenshot"]
 
 [.text-center]
-English | *link:README.zh.adoc[中文]*
+English | *link:README.zh.adoc[中文说明]*
 
 A semi-portable package dedicated for running 
 https://github.com/MrForExample/ComfyUI-3D-Pack[ComfyUI-3D-Pack]
@@ -23,20 +23,20 @@ I tested all the example workflows on a fairly-old TITAN Xp GPU (12GB VRAM). The
 |===
 |Workflow|Status|Screenshot|Memo
 
-|Trellis_Image_to_Mesh
+|(NEW) Trellis_Image_to_Mesh
 |🆗
 |link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/TRELLIS.webp[🖼️]
-|(NEW) Default to xFormers for compatibility. To enable Flash Attention, see <<make-your-own, Make Your Own>>.
+|Default to xFormers for compatibility. To enable Flash Attention, see <<make-your-own, Make Your Own>>.
 
-|Hunyuan3D_V1
+|(NEW) Hunyuan3D_V1
 |🆗
 |link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Hunyuan3Dv1.webp[🖼️]
-|(NEW) Default to xFormers for compatibility. To enable Flash Attention, see <<make-your-own, Make Your Own>>.
+|Default to xFormers for compatibility. To enable Flash Attention, see <<make-your-own, Make Your Own>>.
 
-|StableFast3D/sf3d_by_stability_ai
+|(NEW) StableFast3D / sf3d_by_stability_ai
 |🆗
 |link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/SF3D_SAI.webp[🖼️]
-|(NEW) Workflow from https://github.com/Stability-AI/stable-fast-3d[Stability AI].
+|Workflow from https://github.com/Stability-AI/stable-fast-3d[Stability AI].
 
 |StableFast3D_to_Mesh
 |🆗
@@ -56,7 +56,7 @@ I tested all the example workflows on a fairly-old TITAN Xp GPU (12GB VRAM). The
 |CharacterGen_InstantMesh
 |❓
 |
-|CharacterGen: 🆗; InstantMesh: OOM
+|CharacterGen: 🆗; InstantMesh: OOM.
 
 |CRM MVDiffusion_to_Craftsman
 |🆗
@@ -76,7 +76,7 @@ I tested all the example workflows on a fairly-old TITAN Xp GPU (12GB VRAM). The
 |CRM MVDiffusion_to_InstantMesh
 |❌
 |
-|Incompatible InstantMesh node
+|Incompatible InstantMesh node.
 
 |CRM_T2I_V2 +
 CRM_T2I_V3
@@ -92,7 +92,7 @@ CRM_T2I_V3
 |Unique3D_with_Era3D_All
 |🆗
 |link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Unique3D_Era3D.webp[🖼️]
-|Previously incompatible. Now working.
+|Previously incompatible, now working.
 
 |[FlexiCubes] Multi-View Depth plus Optional Normal maps to 3D Mesh
 |🆗
@@ -107,12 +107,12 @@ CRM_T2I_V3
 |Multi-View-Images_to_Instant-NGP_to_ DiffRast_to_3DMesh
 |🆗
 |link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/MV_InstantNGP_DiffRast.webp[🖼️]
-|Previously incompatible. Now working.
+|Previously incompatible, now working.
 
 |MVDream_to_Large_Multiview_Gaussian_ Model_to_3DGS and_3DMesh
 |🆗
 |link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/MVDream_LGM.webp[🖼️]
-|Previously incompatible. Now working.
+|Previously incompatible, now working.
 
 |Render_Mesh_and_3DGS_Example
 |🆗
@@ -122,7 +122,7 @@ CRM_T2I_V3
 |Triplane_Gaussian_Transformers_to_ 3DGS_and_3DMesh
 |🆗
 |link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Triplane_Gaussian.webp[🖼️]
-|Previously incompatible. Now working.
+|Previously incompatible, now working.
 
 |TripoSR_to_Mesh
 |🆗
@@ -138,7 +138,7 @@ to_conditioning_StableZero123
 |Wonder3D_to_Large_Multiview_ Gaussian_Model_to_3DGS and_3DMesh
 |🆗
 |link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Wonder3D_LGM.webp[🖼️]
-|Previously incompatible. Now working.
+|Previously incompatible, now working.
 
 |Zero123Plus_to_InstantMesh
 |🆗
@@ -205,7 +205,6 @@ https://docs.nvidia.com/cuda/archive/12.4.1/cuda-installation-guide-microsoft-wi
 ** https://github.com/YanWenKun/Comfy3D-WinPortable/releases/tag/r6-pt25
 ** Note that there are multiple files (compressed in volumes) that need to be downloaded. Extract it to a convenient place.
 
-
 2.2. Edit `!FIRST_RUN-compile-install.bat`
 
 You can see the line:
@@ -228,7 +227,10 @@ You can see the line (again):
 
 Edit it like you just did in the last step.
 
-There are few more settings available in this start script, such as:
+
+### 3. (Optional) Extra Config
+
+3.1. There are few more settings available in the start script `run.bat`, such as:
 
 ** Set proxy
 ** Do not open browser after starting
@@ -237,9 +239,7 @@ Each line of configuration has a description above it.
 If needed, uncomment the according line (remove `rem` at the beginning),
 edit it and save the file.
 
-### 3. (Optional) Extra Config
-
-3.1. If you are going to run Stable Fast 3D workflows, you need to edit the start script `run.bat`, find the line:
+3.2. If you are going to run Stable Fast 3D workflows, you need to edit the start script `run.bat`, find the line:
 
  rem set HF_TOKEN=
 
@@ -252,25 +252,26 @@ For example:
  set HF_TOKEN=hf_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgh
 
 
-3.2. If you run multiple ComfyUI instances in Sandboxie, the `.bat` scripts should be executed in a sandbox.
+3.3. If you run multiple ComfyUI instances in Sandboxie, as a reminder, the `.bat` scripts should be executed in a sandbox.
 In addition, I recommend to set the program folder (`Comfy3D_WinPortable`) to "Full Access" under "Sandbox Settings - Resource Access", to improve disk I/O.
 
 
 ### 4. First Start
 
-4.1. Run `!FIRST_RUN-compile-install.bat`. Wait until it finish installation. If it fails, simply run it again.
+4.1. Run `!FIRST_RUN-compile-install.bat`. Wait until it finish installation.
 
-** Depending on hardware, it may take 10~30 minutes.
+** Depending on hardware, it may take 5~30 minutes.
+** If it fails, simply run the script again.
 
 4.2. If you are going to run Unique3D workflows, run `download-models-for-Unique3D.bat`.
 
 4.3. Run `run.bat`. After starting, the program will automatically open a browser, or you can visit: http://localhost:8188/
 
-4.4. In the left sidebar, you can find the "Workflows" button, the example workflows are listed there. The example input files are already in the `input` folder. Open a workflow and click "Queue" at bottom of the page to run the workflow.
+** In the left sidebar, you can find the "Workflows" button, the example workflows are listed there. The example input files are already in the `input` folder. Open a workflow and click "Queue" at bottom of the page to run the workflow.
 
-To shutdown the program, simply close the console window.
+** To shutdown the program, simply close the console window.
 
-To start the program in the future, simply run `run.bat`.
+** To start the program in the future, simply run `run.bat`.
 
 
 ## Troubleshooting
@@ -295,7 +296,7 @@ Note that `ComfyUI\custom_nodes\ComfyUI-3D-Pack` folder is not a git repository,
 Just like the FIRST_RUN script did,
 the `reinstall-deps-for-3d.bat` script will attempt to compile and install the dependencies of 3D-Pack.
 
-You need to edit this file and set TORCH_CUDA_ARCH_LIST as well.
+You need to edit this file and set `TORCH_CUDA_ARCH_LIST` as well.
 
 There are few differences from the FIRST_RUN, this script will:
 
@@ -328,7 +329,7 @@ You can build this package using GitHub Actions.
 Simply fork this repo and go to "Actions" page,
 find "Build & Upload pt25-cu124 Package" and then find "Run workflow".
 
-The workflow takes about 20 minutes to finish.
+The GitHub workflow takes about 20 minutes to finish.
 After that, you can find the 7z files in the "Releases" page.
 
 Examples of custom modification:

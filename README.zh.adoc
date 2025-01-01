@@ -55,20 +55,20 @@ https://github.com/MrForExample/ComfyUI-3D-Pack/tree/a35a737676cf3cbb23360d98032
 |===
 |工作流|结果|截图|备注
 
-|Trellis_Image_to_Mesh
+|(新) Trellis_Image_to_Mesh
 |🆗
 |link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/TRELLIS.webp[🖼️]
-|（新）默认使用 xFormers 以保证兼容性，若想改用 Flash Attention 需定制（见文尾）
+|默认使用 xFormers 以保证兼容性，若想改用 Flash Attention 需定制（见文尾）
 
-|Hunyuan3D_V1
+|(新) Hunyuan3D_V1
 |🆗
 |link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/Hunyuan3Dv1.webp[🖼️]
-|（新）默认使用 xFormers 以保证兼容性，若想改用 Flash Attention 需定制（见文尾）
+|默认使用 xFormers 以保证兼容性，若想改用 Flash Attention 需定制（见文尾）
 
-|StableFast3D/sf3d_by_stability_ai
+|(新) StableFast3D / sf3d_by_stability_ai
 |🆗
 |link:https://github.com/YanWenKun/Comfy3D-WinPortable/raw/refs/heads/main/screenshots-pt25/SF3D_SAI.webp[🖼️]
-|（新）工作流来自 https://github.com/Stability-AI/stable-fast-3d[Stability AI]
+|工作流来自 https://github.com/Stability-AI/stable-fast-3d[Stability AI]
 
 |StableFast3D_to_Mesh
 |🆗
