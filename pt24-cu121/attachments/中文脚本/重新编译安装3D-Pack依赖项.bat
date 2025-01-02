@@ -42,7 +42,7 @@ if not exist ".\tmp_build" mkdir tmp_build
 
 .\python_embeded\python.exe -s -m pip install numpy==1.26.4
 
-git clone --depth=1 https://ghp.ci/https://github.com/MrForExample/Comfy3D_Pre_Builds.git ^
+git clone --depth=1 https://gh-proxy.com/https://github.com/MrForExample/Comfy3D_Pre_Builds.git ^
  .\tmp_build\Comfy3D_Pre_Builds
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
@@ -52,16 +52,16 @@ git clone --depth=1 https://ghp.ci/https://github.com/MrForExample/Comfy3D_Pre_B
  .\tmp_build\Comfy3D_Pre_Builds\_Libs\simple-knn
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- git+https://ghp.ci/https://github.com/ashawkey/diff-gaussian-rasterization.git
+ git+https://gh-proxy.com/https://github.com/ashawkey/diff-gaussian-rasterization.git
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- git+https://ghp.ci/https://github.com/ashawkey/kiuikit.git
+ git+https://gh-proxy.com/https://github.com/ashawkey/kiuikit.git
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- git+https://ghp.ci/https://github.com/NVlabs/nvdiffrast.git
+ git+https://gh-proxy.com/https://github.com/NVlabs/nvdiffrast.git
 
 .\python_embeded\python.exe -s -m pip wheel -w tmp_build ^
- "git+https://ghp.ci/https://github.com/facebookresearch/pytorch3d.git@stable"
+ "git+https://gh-proxy.com/https://github.com/facebookresearch/pytorch3d.git@stable"
 
 echo "编译完成，开始安装……"
 

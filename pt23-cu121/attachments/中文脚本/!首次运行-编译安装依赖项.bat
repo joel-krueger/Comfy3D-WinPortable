@@ -11,7 +11,7 @@ set PATH=%PATH%;%~dp0\python_embeded\Scripts
 set PIP_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 
 .\python_embeded\python.exe -s -m pip install ^
- "git+https://ghp.ci/https://github.com/facebookresearch/pytorch3d.git@V0.7.8"
+ "git+https://gh-proxy.com/https://github.com/facebookresearch/pytorch3d.git@V0.7.8"
 
 @REM 编译安装 pointnet2_ops ，该组件用于 Triplane Gaussian
 
@@ -21,7 +21,7 @@ set PIP_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 @REM 编译安装 diff-gaussian-rasterization ，该组件用于 Triplane Gaussian
 
 .\python_embeded\python.exe -s -m pip install ^
- "git+https://ghp.ci/https://github.com/ashawkey/diff-gaussian-rasterization.git"
+ "git+https://gh-proxy.com/https://github.com/ashawkey/diff-gaussian-rasterization.git"
 
 @REM 编译安装 simple-knn
 
@@ -31,12 +31,12 @@ set PIP_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 @REM 编译安装 kiuikit
 
 .\python_embeded\python.exe -s -m pip install ^
- "git+https://ghp.ci/https://github.com/ashawkey/kiuikit.git"
+ "git+https://gh-proxy.com/https://github.com/ashawkey/kiuikit.git"
 
 @REM 编译安装 nvdiffrast
 
 .\python_embeded\python.exe -s -m pip install ^
- "git+https://ghp.ci/https://github.com/NVlabs/nvdiffrast.git"
+ "git+https://gh-proxy.com/https://github.com/NVlabs/nvdiffrast.git"
 
 @REM 保证使用 numpy1
 
