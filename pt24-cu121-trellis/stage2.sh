@@ -116,6 +116,7 @@ cp -rf "$workdir"/attachments/* \
 
 # Clean up
 rm -vf "$workdir"/Comfy3D_WinPortable/*.log
+rm -vrf "$workdir"/Comfy3D_WinPortable/ComfyUI/user/default/ComfyUI-Manager
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
 rm -vf ./was-node-suite-comfyui/was_suite_config.json
 
