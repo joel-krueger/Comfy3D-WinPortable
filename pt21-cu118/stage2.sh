@@ -95,6 +95,6 @@ cp -rf "$workdir"/attachments/* \
 
 # Clean up
 cd "$workdir"/Comfy3D_WinPortable/ComfyUI/custom_nodes
-rm ./was-node-suite-comfyui/was_suite_config.json
+rm -vf ./was-node-suite-comfyui/was_suite_config.json
 
 cd "$workdir"
