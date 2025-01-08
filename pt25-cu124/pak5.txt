@@ -33,6 +33,7 @@ requests
 rich
 segment-anything
 slangtorch
+toml
 torchtyping
 typer
 typing-extensions
