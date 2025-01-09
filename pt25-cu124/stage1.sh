@@ -94,6 +94,13 @@ unzip -q aria2.zip -d "$workdir"/aria2
 mv "$workdir"/aria2/*/aria2c.exe  "$workdir"/python_embeded/Scripts/
 rm aria2.zip
 
+# Add FFmpeg binary
+curl -sSL https://github.com/GyanD/codexffmpeg/releases/download/7.1/ffmpeg-7.1-full_build.zip \
+    -o ffmpeg.zip
+unzip -q ffmpeg.zip -d "$workdir"/ffmpeg
+mv "$workdir"/ffmpeg/*/bin/ffmpeg.exe  "$workdir"/python_embeded/Scripts/
+rm ffmpeg.zip
+
 # Setup Python embeded, part 3/3
 cd "$workdir"/python_embeded
 sed -i '1i../ComfyUI' ./python312._pth
